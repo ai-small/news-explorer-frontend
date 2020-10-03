@@ -1,0 +1,27 @@
+{
+  "name": "news-explorer-frontend",
+  "version": "0.0.1",
+  "description": "frontend of News Explorer service (graduate project at Yandex.Praktikum)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ai-small/news-explorer-frontend.git"
+  },
+  "author": "ai-small",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ai-small/news-explorer-frontend/issues"
+  },
+  "homepage": "https://github.com/ai-small/news-explorer-frontend#readme",
+  "devDependencies": {
+    "eslint": "^7.5.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.0"
+  },
+  "dependencies": {
+
+  }
+}
