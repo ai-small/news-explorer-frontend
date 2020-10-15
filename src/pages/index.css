@@ -1,0 +1,17 @@
+@import url(../vendor/normalize.css);
+@import url(../vendor/fonts.css);
+@import url(../blocks/page/page.css);
+@import url(../blocks/hidden/hidden.css);
+@import url(../blocks/header/header.css);
+@import url(../blocks/logo/logo.css);
+@import url(../blocks/search-container/search-container.css);
+@import url(../blocks/button/button.css);
+
+
+body {
+  background-color: #FFFFFF;
+}
+
+/* section, h1, p, form, button {
+  border: 1px solid red;
+} */

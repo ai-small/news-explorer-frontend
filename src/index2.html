@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>News Explorer - поиск новостей</title>
+  <link rel="stylesheet" href="./pages/index.css">
+</head>
+<body>
+  <div class="page">
+    <header class="header page__section">
+      <nav class="header__menu">
+        <div class="header__logo">
+          <a href="/" class="logo">NewsExplorer</a>
+          <button class="header__burger"></button>
+        </div>
+        <div class="navigation hidden">
+          <ul>
+            <li><a href="">Главная</a></li>
+            <li><a href="">Сохранённые статьи</a></li>
+          </ul>
+          <button>Авторизоваться</button>
+        </div>
+      </nav>
+      <section class="search-container page__section">
+        <h1 class="search-container__title">Что творится в мире?</h1>
+        <p class="search-container__subtitle">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</p>
+        <form class="search-container__form" name="search-form" novalidate>
+          <input type="text" name="about" class="search-container__input" minlength="2" maxlength="30" required placeholder="Политика"><span class="error"></span>
+          <button type="submit" class="button search-container__button">Искать</button>
+        </form>
+      </section>
+    </header>
+    <section class="page__section search-results">
+      <h2>Результаты поиска</h2>
+      <div class="article">
+        <img src="./images/avatar.jpg" alt="" class="article__image">
+        <p class="article__date">2 августа, 2019</p>
+        <h3 class="article__title">Национальное достояние – парки</h3>
+        <p class="article__intro  ">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков...</p>
+        <p class="article__source">Лента.ру</p>
+      </div>
+      <div class="article">
+        <img src="./images/avatar.jpg" alt="" class="article__image">
+        <p class="article__date">2 августа, 2019</p>
+        <h3 class="article__title">Национальное достояние – парки</h3>
+        <p class="article__intro  ">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков...</p>
+        <p class="article__source">Медуза</p>
+      </div>
+      <div class="article">
+        <img src="./images/avatar.jpg" alt="" class="article__image">
+        <p class="article__date">2 августа, 2019</p>
+        <h3 class="article__title">Национальное достояние – парки</h3>
+        <p class="article__intro  ">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков...</p>
+        <p class="article__source">Риа</p>
+      </div>
+      <button>Показать еще</button>
+    </section>
+    <section class="page__section author">
+      <img src="./images/avatar.jpg" alt="" class="avatar">
+      <h2>Об авторе</h2>
+      <p>Это блок с описанием автора проекта. Здесь следует указать, как вас зовут, чем вы занимаетесь, какими технологиями разработки владеете.</p>
+      <p>Также можно рассказать о процессе обучения в Практикуме, чему вы тут научились, и чем можете помочь потенциальным заказчикам.</p>
+    </section>
+    <footer>
+      <ul>
+        <li><a href="">Главная</a></li>
+        <li><a href="">Яндекс.Практикум</a></li>
+      </ul>
+      <div class="social">
+        <img src="./images/trash-icon.svg" alt="">
+        <img src="./images/trash-icon.svg" alt="">
+      </div>
+      <p>© 2020 Supersite, Powered by News API</p>
+    </footer>
+  </div>
+  <script src="./js/script.js"></script>
+</body>
+</html>
+
+

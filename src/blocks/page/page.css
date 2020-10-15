@@ -1,0 +1,5 @@
+@import url(./__section/page__section.css);
+
+.page {
+  min-width: 320px;
+}

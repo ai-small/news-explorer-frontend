@@ -1,0 +1,9 @@
+.button {
+  font-family: Roboto, Arial, Helvetica, serif;
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+  border-radius: 100px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 56px;
+}

@@ -1,0 +1,15 @@
+.search-container__input {
+  background: #FFFFFF;
+  border: 1px solid #D1D2D6;
+  box-sizing: border-box;
+  /* backdrop-filter: blur(100px); */
+  border-radius: 100px;
+  min-width: 288px;
+  min-height: 56px;
+  padding: 1rem;
+  margin-top: 106px;
+  font-family: Roboto, Arial, Helvetica, serif;
+  font-weight: normal;
+  font-size: 1rem;
+  line-height: 1.36rem;
+}

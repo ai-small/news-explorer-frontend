@@ -1,0 +1,13 @@
+@import url(./__title/search-container__title.css);
+@import url(./__subtitle/search-container__subtitle.css);
+@import url(./__form/search-container__form.css);
+@import url(./__input/search-container__input.css);
+@import url(./__button/search-container__button.css);
+
+.search-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+}
