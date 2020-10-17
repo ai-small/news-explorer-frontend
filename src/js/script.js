@@ -1,66 +1,87 @@
-import '../pages/index.css';
-
-import { Api } from './api.js';
-import { config } from './data.js';
-import { CardList } from './cardList.js';
-import { ImagePopup } from './imagePopup.js';
-import { NewPlacePopup } from './newPlacePopup.js';
-import { EditProfilePopup } from './editProfilePopup.js';
-import { UpdateAvatarPopup } from './updateAvatarPopup.js';
-import { Card } from './card.js';
-import { FormValidator } from './formValidator.js';
-import { UserInfo } from './userInfo.js';
-
-
+// eslint-disable-next-line wrap-iife
 (function () {
+  const openMobileMenu = document.querySelector('.button__icon_burger');
+  const closeMobileMenu = document.querySelector('.button__icon_close');
 
-  const cardsContainer = document.querySelector('.places-list');
-  const containerPopupContent = document.querySelector('.popup__content');
+  // eslint-disable-next-line prefer-arrow-callback
+  openMobileMenu.addEventListener('click', function() {
+    const overlay = document.querySelector('.overlay');
+    const navigationHidden = document.querySelector('.navigation');
+    const headerMenu = document.querySelector('.header__menu');
 
-  const openAddCardButton = document.querySelector('.user-info__button_type_new');
-  const openEditButton = document.querySelector('.user-info__button_type_edit');
+    if (navigationHidden.classList.contains('hidden')) {
+      navigationHidden.classList.remove('hidden');
+      headerMenu.classList.add('header__menu_theme_dark');
+      overlay.classList.remove('hidden');
+      openMobileMenu.classList.add('hidden');
+      closeMobileMenu.classList.remove('hidden');
+      console.log('remove hidden, set theme_dark, set overlay to page');
+    }
+  });
 
-  const avatarContainer = document.querySelector('.user-info__photo');
+  closeMobileMenu.addEventListener('click', function() {
+    console.log('close!');
+    const overlay = document.querySelector('.overlay');
+    const navigationHidden = document.querySelector('.navigation');
+    const headerMenu = document.querySelector('.header__menu');
+    if (!navigationHidden.classList.contains('hidden')) {
+      navigationHidden.classList.add('hidden');
+      headerMenu.classList.remove('header__menu_theme_dark');
+      overlay.classList.add('hidden');
+      openMobileMenu.classList.remove('hidden');
+      closeMobileMenu.classList.add('hidden');
+    }
+  });
+  // const cardsContainer = document.querySelector('.places-list');
+  // const containerPopupContent = document.querySelector('.popup__content');
 
-  const createCard = (...arg) => new Card(...arg);
-  const createImagePopup = (...arg) => new ImagePopup(...arg);
-  const createFormValidator = (...arg) => new FormValidator(...arg);
-  const createUserInfo = (...arg) => new UserInfo(...arg);
-  const getInitialCards = () => {
+  // const openAddCardButton = document.querySelector('.user-info__button_type_new');
+  // const openEditButton = document.querySelector('.user-info__button_type_edit');
 
-    api.getCards()
-      .then(res => {
-        cardList.render(res, userInfo)
-      })
-      .catch(err => {
-        console.log(err);
-      })
+  // const avatarContainer = document.querySelector('.user-info__photo');
 
-  }
+  // const createCard = (...arg) => new Card(...arg);
+  // const createImagePopup = (...arg) => new ImagePopup(...arg);
+  // const createFormValidator = (...arg) => new FormValidator(...arg);
+  // const createUserInfo = (...arg) => new UserInfo(...arg);
+  // const getInitialCards = () => {
 
-  const api = new Api(config);
-  const cardList = new CardList(cardsContainer, api, createCard, createImagePopup);
-  const placeForm = new NewPlacePopup(containerPopupContent, createFormValidator, cardList._addCard, createImagePopup, api);
-  const editProfileForm = new EditProfilePopup(containerPopupContent, createUserInfo, createFormValidator, api, openEditButton, avatarContainer);
-  const updateAvatarPopup = new UpdateAvatarPopup(containerPopupContent, avatarContainer, createFormValidator, api);
-  const userInfo = createUserInfo(api, openEditButton, avatarContainer);
+  //   api.getCards()
+  //     .then(res => {
+  //       cardList.render(res, userInfo)
+  //     })
+  //     .catch(err => {
+  //       console.log(err);
+  //     })
 
-  api.getUserInfo()
-    .then(res => {
+  // }
 
-      userInfo.setUserInfo(res.name, res.about, res._id, res.avatar);
-      userInfo.updateUserInfo();
+  // const api = new Api(config);
+  // const cardList = new CardList(cardsContainer, api, createCard, createImagePopup);
+  // const placeForm = new NewPlacePopup(containerPopupContent, createFormValidator, cardList._addCard, createImagePopup, api);
+  // const editProfileForm = new EditProfilePopup(containerPopupContent, createUserInfo, createFormValidator, api, openEditButton, avatarContainer);
+  // const updateAvatarPopup = new UpdateAvatarPopup(containerPopupContent, avatarContainer, createFormValidator, api);
+  // const userInfo = createUserInfo(api, openEditButton, avatarContainer);
 
-    })
-    .catch(err => {
-      console.log('Error: ', err);
-    })
 
-  getInitialCards();
+  // //main
 
-  openAddCardButton.addEventListener('click', placeForm._open);
-  openEditButton.addEventListener('click', editProfileForm._open);
-  avatarContainer.addEventListener('click', updateAvatarPopup._open);
+  // api.getUserInfo()
+  //   .then(res => {
+
+  //     userInfo.setUserInfo(res.name, res.about, res._id, res.avatar);
+  //     userInfo.updateUserInfo();
+
+  //   })
+  //   .catch(err => {
+  //     console.log('Error: ', err);
+  //   })
+
+
+  // getInitialCards();
+
+  // openAddCardButton.addEventListener('click', placeForm._open);
+  // openEditButton.addEventListener('click', editProfileForm._open);
+  // avatarContainer.addEventListener('click', updateAvatarPopup._open);
 
 })();
-

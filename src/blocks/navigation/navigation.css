@@ -1,0 +1,13 @@
+@import url(./__item/navigation__item.css);
+@import url(./__list/navigation__list.css);
+
+.navigation {
+  border-radius: 0 0 16px 16px;
+  color: #ffffff;
+  list-style: none;
+  position: absolute;
+  background: #1A1B22;
+  width: 100%;
+  top: 56px;
+
+}

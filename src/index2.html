@@ -13,14 +13,16 @@
       <nav class="header__menu">
         <div class="header__logo">
           <a href="/" class="logo">NewsExplorer</a>
-          <button class="header__burger"></button>
+          <button class="button__icon button__icon_burger"></button>
+          <button class="button__icon button__icon_close hidden"></button>
         </div>
         <div class="navigation hidden">
-          <ul>
-            <li><a href="">Главная</a></li>
-            <li><a href="">Сохранённые статьи</a></li>
+          <!-- hidden -->
+          <ul class="navigation__list">
+            <li><a href="" class="navigation__item">Главная</a></li>
+            <li><a href="" class="navigation__item">Сохранённые статьи</a></li>
           </ul>
-          <button>Авторизоваться</button>
+          <button class="button">Авторизоваться</button>
         </div>
       </nav>
       <section class="search-container page__section">
@@ -32,37 +34,40 @@
         </form>
       </section>
     </header>
-    <section class="page__section search-results">
-      <h2>Результаты поиска</h2>
-      <div class="article">
-        <img src="./images/avatar.jpg" alt="" class="article__image">
-        <p class="article__date">2 августа, 2019</p>
-        <h3 class="article__title">Национальное достояние – парки</h3>
-        <p class="article__intro  ">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков...</p>
-        <p class="article__source">Лента.ру</p>
-      </div>
-      <div class="article">
-        <img src="./images/avatar.jpg" alt="" class="article__image">
-        <p class="article__date">2 августа, 2019</p>
-        <h3 class="article__title">Национальное достояние – парки</h3>
-        <p class="article__intro  ">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков...</p>
-        <p class="article__source">Медуза</p>
-      </div>
-      <div class="article">
-        <img src="./images/avatar.jpg" alt="" class="article__image">
-        <p class="article__date">2 августа, 2019</p>
-        <h3 class="article__title">Национальное достояние – парки</h3>
-        <p class="article__intro  ">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков...</p>
-        <p class="article__source">Риа</p>
-      </div>
-      <button>Показать еще</button>
-    </section>
-    <section class="page__section author">
-      <img src="./images/avatar.jpg" alt="" class="avatar">
-      <h2>Об авторе</h2>
-      <p>Это блок с описанием автора проекта. Здесь следует указать, как вас зовут, чем вы занимаетесь, какими технологиями разработки владеете.</p>
-      <p>Также можно рассказать о процессе обучения в Практикуме, чему вы тут научились, и чем можете помочь потенциальным заказчикам.</p>
-    </section>
+    <main >
+      <div class="overlay hidden"></div>
+      <section class="page__section search-results">
+        <h2>Результаты поиска</h2>
+        <div class="article">
+          <img src="./images/avatar.jpg" alt="" class="article__image">
+          <p class="article__date">2 августа, 2019</p>
+          <h3 class="article__title">Национальное достояние – парки</h3>
+          <p class="article__intro  ">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков...</p>
+          <p class="article__source">Лента.ру</p>
+        </div>
+        <div class="article">
+          <img src="./images/avatar.jpg" alt="" class="article__image">
+          <p class="article__date">2 августа, 2019</p>
+          <h3 class="article__title">Национальное достояние – парки</h3>
+          <p class="article__intro  ">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков...</p>
+          <p class="article__source">Медуза</p>
+        </div>
+        <div class="article">
+          <img src="./images/avatar.jpg" alt="" class="article__image">
+          <p class="article__date">2 августа, 2019</p>
+          <h3 class="article__title">Национальное достояние – парки</h3>
+          <p class="article__intro  ">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков...</p>
+          <p class="article__source">Риа</p>
+        </div>
+        <button>Показать еще</button>
+      </section>
+      <section class="page__section author">
+        <img src="./images/avatar.jpg" alt="" class="avatar">
+        <h2>Об авторе</h2>
+        <p>Это блок с описанием автора проекта. Здесь следует указать, как вас зовут, чем вы занимаетесь, какими технологиями разработки владеете.</p>
+        <p>Также можно рассказать о процессе обучения в Практикуме, чему вы тут научились, и чем можете помочь потенциальным заказчикам.</p>
+      </section>
+    </main>
     <footer>
       <ul>
         <li><a href="">Главная</a></li>

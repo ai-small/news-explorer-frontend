@@ -1,3 +1,5 @@
+@import url(./_theme/header__menu_theme_dark.css);
+
 .header__menu {
   display: flex;
   flex-direction: column;

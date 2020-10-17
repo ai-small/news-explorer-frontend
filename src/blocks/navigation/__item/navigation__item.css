@@ -1,0 +1,8 @@
+.navigation__item {
+  text-decoration: none;
+  color: #ffffff;
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 56px;
+}
