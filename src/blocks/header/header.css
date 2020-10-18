@@ -1,5 +1,4 @@
 @import url(./__logo/header__logo.css);
-@import url(./__burger/header__burger.css);
 @import url(./__menu/header__menu.css);
 
 .header {
@@ -14,6 +13,6 @@
 @media screen and (max-width: 768px) and (min-width: 500px)
 {
   .header {
-    background: url(../../images/georgia-de-lotz--UsJoNxLaNo-unsplash-768.jpg) no-repeat center;
+    background: url(../../images/georgia-de-lotz--UsJoNxLaNo-unsplash-768.jpg) no-repeat;
   }
 }

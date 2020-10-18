@@ -4,8 +4,9 @@
   width: calc(100% - 2rem);
   border: none;
   align-self: center;
-  font-family: Roboto, Arial, Helvetica, serif;;
+  font-family: Roboto, Arial, Helvetica, serif;
   font-weight: 500;
   font-size: 1.125rem;
   line-height: 1.5rem;
+  margin-bottom: 2rem;
 }

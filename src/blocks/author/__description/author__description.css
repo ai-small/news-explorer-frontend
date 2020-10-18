@@ -1,0 +1,11 @@
+.author__description {
+  font-family: Roboto, Arial, Helvetica, serif;;
+  font-weight: 400;
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+  margin: 0 16px 24px 16px;
+}
+
+.author__description:last-child {
+  margin: 0 16px 0 16px;
+}

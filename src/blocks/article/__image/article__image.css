@@ -1,4 +1,5 @@
 .article__image {
   border-radius: 16px 16px 0 0;
   width: 100%;
+  margin-bottom: 12px;
 }

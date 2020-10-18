@@ -39,21 +39,21 @@
         <h2 class="title search-results__title">Результаты поиска</h2>
         <div class="article">
           <img src="./images/image_08.jpg" alt="image description" class="article__image">
-          <p class="article__date">2 августа, 2019</p>
+          <time datetime="2019-08-02" class="article__date">2 августа, 2019</time>
           <h3 class="title article__title">Национальное достояние&nbsp;–&nbsp;парки</h3>
           <p class="article__intro">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков...</p>
           <p class="article__source">Лента.ру</p>
         </div>
         <div class="article">
           <img src="./images/image_06.jpg" alt="image description" class="article__image">
-          <p class="article__date">2 августа, 2019</p>
+          <time datetime="2019-08-02" class="article__date">2 августа, 2019</time>
           <h3 class="title article__title">Национальное достояние&nbsp;–&nbsp;парки</h3>
           <p class="article__intro">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков...</p>
           <p class="article__source">Медуза</p>
         </div>
         <div class="article">
           <img src="./images/image_07.jpg" alt="image description" class="article__image">
-          <p class="article__date">2 августа, 2019</p>
+          <time datetime="2019-08-02" class="article__date">2 августа, 2019</time>
           <h3 class="title article__title">Национальное достояние&nbsp;–&nbsp;парки</h3>
           <p class="article__intro">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков...</p>
           <p class="article__source">Риа</p>
@@ -61,22 +61,32 @@
         <button class="button search-results__button">Показать еще</button>
       </section>
       <section class="page__section author">
-        <img src="./images/avatar.jpg" alt="" class="avatar">
-        <h2 class="title">Об авторе</h2>
-        <p>Это блок с описанием автора проекта. Здесь следует указать, как вас зовут, чем вы занимаетесь, какими технологиями разработки владеете.</p>
-        <p>Также можно рассказать о процессе обучения в Практикуме, чему вы тут научились, и чем можете помочь потенциальным заказчикам.</p>
+        <picture class="author__avatar">
+          <source srcset="./images/image-03-desktop.jpg" media="(min-width: 1440px)">
+          <source srcset="./images/image-03-tablet.jpg" media="(min-width: 600px) and (max-width: 1439px)">
+          <img src="./images/image-03.png" alt="Site's author's photo">
+         </picture>
+        <div class="author__text-block">
+          <h2 class="title author__title">Об авторе</h2>
+          <div class="author__description">
+            <p>Это блок с описанием автора проекта. Здесь следует указать, как вас зовут, чем вы занимаетесь, какими технологиями разработки владеете.</p>
+            <p>Также можно рассказать о процессе обучения в Практикуме, чему вы тут научились, и чем можете помочь потенциальным заказчикам.</p>
+          </div>
+        </div>
       </section>
     </main>
-    <footer>
-      <ul>
-        <li><a href="">Главная</a></li>
-        <li><a href="">Яндекс.Практикум</a></li>
-      </ul>
-      <div class="social">
-        <img src="./images/trash-icon.svg" alt="">
-        <img src="./images/trash-icon.svg" alt="">
+    <footer class="footer">
+      <div class="footer__lists">
+        <ul class="footer__navigation">
+          <li><a href="" class="footer__navigation-item">Главная</a></li>
+          <li><a href="" class="footer__navigation-item">Яндекс.Практикум</a></li>
+        </ul>
+        <ul class="footer__socials">
+          <li class="footer__socials-item footer__socials-item_github"><a href="https://github.com/ai-small" ><img src="./images/github.svg" alt="Github profile"></a></li>
+          <li class="footer__socials-item footer__socials-item_facebok"><a href="https://ru-ru.facebook.com/" ><img src="./images/facebook.svg" alt="Facebook profile"></a></li>
+        </ul>
       </div>
-      <p>© 2020 Supersite, Powered by News API</p>
+      <p class="footer__copyright">© 2020 Supersite, Powered by News API</p>
     </footer>
   </div>
   <script src="./js/script.js"></script>
