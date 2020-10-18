@@ -1,0 +1,11 @@
+.article__source {
+  font-family: Roboto Slab, Arial, Helvetica, serif;
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 1.25rem;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: #B6BCBF;
+  margin: 8px 16px 0 16px;
+  padding-bottom: 16px;
+}

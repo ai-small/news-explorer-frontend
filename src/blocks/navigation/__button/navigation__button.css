@@ -1,0 +1,12 @@
+.navigation__button {
+  max-width: 288px;
+  border: 1px solid #FFFFFF;
+  background: #1A1B22;
+  margin: 6px 16px 24px 16px;
+  color: #FFFFFF;
+  font-family: Roboto, Arial, Helvetica, serif;
+  font-weight: 500;
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+  align-self: center;
+}

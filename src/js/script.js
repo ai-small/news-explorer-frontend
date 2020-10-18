@@ -11,6 +11,7 @@
 
     if (navigationHidden.classList.contains('hidden')) {
       navigationHidden.classList.remove('hidden');
+      navigationHidden.classList.add('navigation_flex');
       headerMenu.classList.add('header__menu_theme_dark');
       overlay.classList.remove('hidden');
       openMobileMenu.classList.add('hidden');
@@ -26,6 +27,7 @@
     const headerMenu = document.querySelector('.header__menu');
     if (!navigationHidden.classList.contains('hidden')) {
       navigationHidden.classList.add('hidden');
+      navigationHidden.classList.remove('navigation_flex');
       headerMenu.classList.remove('header__menu_theme_dark');
       overlay.classList.add('hidden');
       openMobileMenu.classList.remove('hidden');

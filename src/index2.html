@@ -12,21 +12,20 @@
     <header class="header page__section">
       <nav class="header__menu">
         <div class="header__logo">
-          <a href="/" class="logo">NewsExplorer</a>
+          <a href="" class="logo">NewsExplorer</a>
           <button class="button__icon button__icon_burger"></button>
           <button class="button__icon button__icon_close hidden"></button>
         </div>
         <div class="navigation hidden">
-          <!-- hidden -->
           <ul class="navigation__list">
             <li><a href="" class="navigation__item">Главная</a></li>
-            <li><a href="" class="navigation__item">Сохранённые статьи</a></li>
+            <li><a href="" class="navigation__item hidden">Сохранённые статьи</a></li>
           </ul>
-          <button class="button">Авторизоваться</button>
+          <button class="button navigation__button">Авторизоваться</button>
         </div>
       </nav>
       <section class="search-container page__section">
-        <h1 class="search-container__title">Что творится в мире?</h1>
+        <h1 class="title search-container__title">Что творится в мире?</h1>
         <p class="search-container__subtitle">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</p>
         <form class="search-container__form" name="search-form" novalidate>
           <input type="text" name="about" class="search-container__input" minlength="2" maxlength="30" required placeholder="Политика"><span class="error"></span>
@@ -34,36 +33,36 @@
         </form>
       </section>
     </header>
-    <main >
+    <main>
       <div class="overlay hidden"></div>
       <section class="page__section search-results">
-        <h2>Результаты поиска</h2>
+        <h2 class="title search-results__title">Результаты поиска</h2>
         <div class="article">
-          <img src="./images/avatar.jpg" alt="" class="article__image">
+          <img src="./images/image_08.jpg" alt="image description" class="article__image">
           <p class="article__date">2 августа, 2019</p>
-          <h3 class="article__title">Национальное достояние – парки</h3>
-          <p class="article__intro  ">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков...</p>
+          <h3 class="title article__title">Национальное достояние&nbsp;–&nbsp;парки</h3>
+          <p class="article__intro">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков...</p>
           <p class="article__source">Лента.ру</p>
         </div>
         <div class="article">
-          <img src="./images/avatar.jpg" alt="" class="article__image">
+          <img src="./images/image_06.jpg" alt="image description" class="article__image">
           <p class="article__date">2 августа, 2019</p>
-          <h3 class="article__title">Национальное достояние – парки</h3>
-          <p class="article__intro  ">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков...</p>
+          <h3 class="title article__title">Национальное достояние&nbsp;–&nbsp;парки</h3>
+          <p class="article__intro">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков...</p>
           <p class="article__source">Медуза</p>
         </div>
         <div class="article">
-          <img src="./images/avatar.jpg" alt="" class="article__image">
+          <img src="./images/image_07.jpg" alt="image description" class="article__image">
           <p class="article__date">2 августа, 2019</p>
-          <h3 class="article__title">Национальное достояние – парки</h3>
-          <p class="article__intro  ">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков...</p>
+          <h3 class="title article__title">Национальное достояние&nbsp;–&nbsp;парки</h3>
+          <p class="article__intro">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков...</p>
           <p class="article__source">Риа</p>
         </div>
-        <button>Показать еще</button>
+        <button class="button search-results__button">Показать еще</button>
       </section>
       <section class="page__section author">
         <img src="./images/avatar.jpg" alt="" class="avatar">
-        <h2>Об авторе</h2>
+        <h2 class="title">Об авторе</h2>
         <p>Это блок с описанием автора проекта. Здесь следует указать, как вас зовут, чем вы занимаетесь, какими технологиями разработки владеете.</p>
         <p>Также можно рассказать о процессе обучения в Практикуме, чему вы тут научились, и чем можете помочь потенциальным заказчикам.</p>
       </section>

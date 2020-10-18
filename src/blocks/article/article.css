@@ -1,0 +1,16 @@
+@import url(./__image/article__image.css);
+@import url(./__date/article__date.css);
+@import url(./__title/article__title.css);
+@import url(./__intro/article__intro.css);
+@import url(./__source/article__source.css);
+
+.article {
+  background: #ffffff;
+  width: calc(100% - 2rem);
+  margin: 0 auto 10px auto;
+  border-radius: 16px;
+}
+
+.article:last-of-type {
+  margin-bottom: 15px;
+}

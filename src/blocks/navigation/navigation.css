@@ -1,5 +1,7 @@
 @import url(./__item/navigation__item.css);
 @import url(./__list/navigation__list.css);
+@import url(./__button/navigation__button.css);
+@import url(./_flex/navigation_flex.css);
 
 .navigation {
   border-radius: 0 0 16px 16px;
@@ -9,5 +11,4 @@
   background: #1A1B22;
   width: 100%;
   top: 56px;
-
 }
