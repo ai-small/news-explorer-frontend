@@ -3,12 +3,14 @@
 @import url(./__title/article__title.css);
 @import url(./__intro/article__intro.css);
 @import url(./__source/article__source.css);
+@import url(./__bookmark-icon/article__bookmark-icon.css);
 
 .article {
   background: #ffffff;
   width: calc(100% - 2rem);
   margin: 0 auto 10px auto;
   border-radius: 16px;
+  position: relative;
 }
 
 .article:last-of-type {
