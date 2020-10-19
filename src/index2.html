@@ -86,6 +86,29 @@
           </div>
         </div>
       </section>
+      <div class="popup popup_type_signin">
+        <div class="popup__content">
+          <button class="button__icon button__icon_close"></button>
+          <h3 class="popup__title">Вход</h3>
+          <form class="form" name="signin">
+            <div class="form__field">
+              <label for="signin-email">Email</label>
+              <input class="form__input" id="signin-email" type="email" name="email-login" pattern="^[A-Za-z](?:[A-Za-z0-9_]+)?(?:(?:(?:-|\.)[A-Za-z0-9_]+)+)?@[a-z0-9]+(?:-[a-z0-9]+)?\.[a-z]+(?:\.[a-z]+)?$" minlength="5" placeholder="Введите почту" required="">
+              <span class="form__error">Неправильный формат email</span>
+            </div>
+            <div class="form__field">
+              <label for="signin-password">Пароль</label>
+              <input class="form__input" id="signin-password" type="email" name="email-login" pattern="^[A-Za-z](?:[A-Za-z0-9_]+)?(?:(?:(?:-|\.)[A-Za-z0-9_]+)+)?@[a-z0-9]+(?:-[a-z0-9]+)?\.[a-z]+(?:\.[a-z]+)?$" minlength="8" placeholder="Введите пароль" required="">
+              <span class="form__error"></span>
+            </div>
+            <span class="form__server-error"></span>
+            <button type="submit" class="button">Войти</button>
+            <p class="">или <button type="button" class="button button_type_text">Зарегистрироваться</button></p>
+        </form>
+        </div>
+      </div>
+      <!-- <div class="popup popup_type_signup"></div>
+      <div class="popup popup_type_signup-success"></div> -->
     </main>
     <footer class="footer">
       <div class="footer__lists">
