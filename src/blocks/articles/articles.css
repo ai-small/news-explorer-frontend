@@ -1,0 +1,27 @@
+.articles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(224px, 100%), 288px));
+  grid-gap: 0.5rem;
+  justify-content: center;
+}
+
+@media screen and (min-width: 500px)
+{
+  .articles {
+    grid-template-columns: repeat(auto-fill, minmax(min(224px, 100%), 224px));
+  }
+}
+
+@media screen and (min-width: 916px)
+{
+  .articles {
+    grid-template-columns: repeat(auto-fill, minmax(min(224px, 100%), 295px));
+  }
+}
+
+@media screen and (min-width: 1210px)
+{
+  .articles {
+    grid-template-columns: repeat(auto-fill, minmax(min(224px, 100%), 400px));
+  }
+}
