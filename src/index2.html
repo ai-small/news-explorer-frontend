@@ -21,7 +21,7 @@
             <li><a href="" class="navigation__item">Главная</a></li>
             <li><a href="" class="navigation__item hidden">Сохранённые статьи</a></li>
           </ul>
-          <button class="button navigation__button">Авторизоваться</button>
+          <button class="button button_type_button navigation__button">Авторизоваться</button>
         </div>
       </nav>
       <section class="search-container page__section">
@@ -29,7 +29,7 @@
         <p class="search-container__subtitle">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</p>
         <form class="search-container__form" name="search-form" novalidate>
           <input type="text" name="about" class="search-container__input" minlength="2" maxlength="30" required placeholder="Политика"><span class="error"></span>
-          <button type="submit" class="button search-container__button">Искать</button>
+          <button type="submit" class="button button_type_button button_color_blue search-container__button">Искать</button>
         </form>
       </section>
     </header>
@@ -70,7 +70,7 @@
           <p class="article__intro">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков...</p>
           <p class="article__source">Риа</p>
         </div>
-        <button class="button search-results__button">Показать еще</button>
+        <button class="button button_type_button search-results__button">Показать еще</button>
       </section>
       <section class="page__section author">
         <picture class="author__avatar">
@@ -86,29 +86,59 @@
           </div>
         </div>
       </section>
-      <div class="popup popup_type_signin">
+      <div class="popup popup_type_signin hidden" id="popup-signin">
         <div class="popup__content">
-          <button class="button__icon button__icon_close"></button>
+          <button class="button__icon button__icon_close popup__mobile-button" id="signin-close"></button>
           <h3 class="popup__title">Вход</h3>
           <form class="form" name="signin">
             <div class="form__field">
-              <label for="signin-email">Email</label>
+              <label for="signin-email" class="form__label">Email</label>
               <input class="form__input" id="signin-email" type="email" name="email-login" pattern="^[A-Za-z](?:[A-Za-z0-9_]+)?(?:(?:(?:-|\.)[A-Za-z0-9_]+)+)?@[a-z0-9]+(?:-[a-z0-9]+)?\.[a-z]+(?:\.[a-z]+)?$" minlength="5" placeholder="Введите почту" required="">
               <span class="form__error">Неправильный формат email</span>
             </div>
             <div class="form__field">
-              <label for="signin-password">Пароль</label>
-              <input class="form__input" id="signin-password" type="email" name="email-login" pattern="^[A-Za-z](?:[A-Za-z0-9_]+)?(?:(?:(?:-|\.)[A-Za-z0-9_]+)+)?@[a-z0-9]+(?:-[a-z0-9]+)?\.[a-z]+(?:\.[a-z]+)?$" minlength="8" placeholder="Введите пароль" required="">
+              <label for="signin-password" class="form__label">Пароль</label>
+              <input class="form__input" id="signin-password" type="password" name="password-login" pattern="^[A-Za-z](?:[A-Za-z0-9_]+)?(?:(?:(?:-|\.)[A-Za-z0-9_]+)+)?@[a-z0-9]+(?:-[a-z0-9]+)?\.[a-z]+(?:\.[a-z]+)?$" minlength="8" placeholder="Введите пароль" required="">
               <span class="form__error"></span>
             </div>
-            <span class="form__server-error"></span>
-            <button type="submit" class="button">Войти</button>
-            <p class="">или <button type="button" class="button button_type_text">Зарегистрироваться</button></p>
+            <div class="form__submit-area">
+              <span class="form__error form__server-error"></span>
+              <button type="submit" class="button button_type_button button_color_blue button_disabled form__button" disabled>Войти</button>
+              <p class="form__text-container">или <button type="button" class="button button_type_text" id="open-signup">Зарегистрироваться</button></p>
+            </div>
         </form>
         </div>
       </div>
-      <!-- <div class="popup popup_type_signup"></div>
-      <div class="popup popup_type_signup-success"></div> -->
+      <div class="popup popup_type_signup hidden" id="popup-signup">
+        <div class="popup__content">
+          <button class="button__icon button__icon_close popup__mobile-button hidden" id="signup-close"></button>
+          <h3 class="popup__title">Регистрация</h3>
+          <form class="form" name="signup">
+            <div class="form__field">
+              <label for="signup-email" class="form__label">Email</label>
+              <input class="form__input" id="signup-email" type="email" name="email-signup" pattern="^[A-Za-z](?:[A-Za-z0-9_]+)?(?:(?:(?:-|\.)[A-Za-z0-9_]+)+)?@[a-z0-9]+(?:-[a-z0-9]+)?\.[a-z]+(?:\.[a-z]+)?$" minlength="5" placeholder="Введите почту" required="">
+              <span class="form__error">Неправильный формат email</span>
+            </div>
+            <div class="form__field">
+              <label for="signup-password" class="form__label">Пароль</label>
+              <input class="form__input" id="signup-password" type="password" name="password-signup" pattern="^[A-Za-z](?:[A-Za-z0-9_]+)?(?:(?:(?:-|\.)[A-Za-z0-9_]+)+)?@[a-z0-9]+(?:-[a-z0-9]+)?\.[a-z]+(?:\.[a-z]+)?$" minlength="8" placeholder="Введите пароль" required="">
+              <span class="form__error"></span>
+            </div>
+            <div class="form__field">
+              <label for="signup-name" class="form__label">Имя</label>
+              <input class="form__input" id="signup-name" type="text" name="name-signup" pattern="^[А-ЯЁ][а-яё]+(?:(?:-|\s)[А-ЯЁ][а-яё]+)?$" minlength="8" placeholder="Введите своё имя" required="">
+              <span class="form__error"></span>
+            </div>
+            <div class="form__submit-area">
+              <span class="form__error form__server-error">Такой пользователь уже есть</span>
+            <button type="submit" class="button button_type_button button_color_blue button_disabled form__button" disabled>Зарегистрироваться</button>
+            <p class="form__text-container">или <button type="button" class="button button_type_text" id="open-signin">Войти</button></p>
+            </div>
+        </form>
+        </div>
+
+      </div>
+      <!-- <div class="popup popup_type_signup-success" id="popup-signup-success"></div> -->
     </main>
     <footer class="footer">
       <div class="footer__lists">

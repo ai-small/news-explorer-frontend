@@ -1,0 +1,12 @@
+.button_type_text {
+  font-family: Inter, Roboto, Arial, Helvetica, serif;
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.06rem;
+  text-align: center;
+  color: #2F71E5;
+  border: none;
+  background-color: #ffffff;
+  padding: 0;
+
+}

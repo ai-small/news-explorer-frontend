@@ -1,0 +1,5 @@
+.form__submit-area {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}

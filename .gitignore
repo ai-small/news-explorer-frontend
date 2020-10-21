@@ -17,4 +17,4 @@ node_modules
 #Other
 .env
 package_old.json
-src\images\pixPerfect\*
+src/images/pixPerfect
