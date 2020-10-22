@@ -1,6 +1,20 @@
 .search-results__title {
   font-size: 1.88rem;
   line-height: 2.125rem;
-  margin: 0 1rem 1.5rem 1rem;
+  margin: 0 0 1.5rem 0;
   padding-top: 2rem;
 }
+
+/* @media screen and (min-width: 500px)
+{
+  .search-results__title {
+    margin: 0 1.125rem 1.5rem 1.125rem;
+  }
+}
+
+@media screen and (min-width: 768px)
+{
+  .search-results__title {
+    margin: 0 2.5rem 1.5rem 2.5rem;
+  }
+} */

@@ -12,16 +12,17 @@
   }
 }
 
-@media screen and (min-width: 916px)
+@media screen and (min-width: 703px)
 {
   .articles {
-    grid-template-columns: repeat(auto-fill, minmax(min(224px, 100%), 295px));
+    grid-template-columns: repeat(auto-fill, minmax(min(224px, 100%), 224px));
   }
 }
 
-@media screen and (min-width: 1210px)
+@media screen and (min-width: 1000px)
 {
   .articles {
-    grid-template-columns: repeat(auto-fill, minmax(min(224px, 100%), 400px));
+    grid-template-columns: repeat(3, minmax(min(224px, 100%), 400px));
+    grid-gap: 1rem;
   }
 }

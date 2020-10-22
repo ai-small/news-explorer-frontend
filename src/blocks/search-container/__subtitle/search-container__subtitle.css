@@ -6,3 +6,10 @@
   line-height: 1.5rem;
   margin: 1rem 0;
 }
+
+@media screen and (min-width: 470px)
+{
+  .search-container__subtitle {
+    margin: 1rem 0 3rem 0;
+  }
+}

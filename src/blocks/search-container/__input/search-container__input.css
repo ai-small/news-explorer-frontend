@@ -13,3 +13,21 @@
   font-size: 1rem;
   line-height: 1.36rem;
 }
+
+@media screen and (min-width: 470px)
+{
+  .search-container__input {
+    margin-top: 0;
+    min-height: 56px;
+    min-width: 448px;
+  }
+}
+
+@media screen and (min-width: 1024px)
+{
+  .search-container__input {
+    margin-top: 0;
+    min-height: 64px;
+    min-width: 608px;
+  }
+}

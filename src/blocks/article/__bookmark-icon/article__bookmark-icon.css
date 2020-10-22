@@ -8,3 +8,19 @@
   border: none;
   border-radius: 8px;
 }
+
+@media screen and (min-width: 425px) and (max-width: 767px)
+{
+  .article__bookmark-icon {
+    top: 0.5rem;
+    right: 0.5rem;
+  }
+}
+
+@media screen and (min-width: 1280px)
+{
+  .article__bookmark-icon {
+    top: 1.5rem;
+    right: 1.5rem;
+  }
+}

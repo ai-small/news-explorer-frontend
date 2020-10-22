@@ -1,7 +1,7 @@
 .search-results__button {
   background: #FFFFFF;
   border-radius: 80px;
-  width: calc(100% - 2rem);
+  width: 288px;
   border: none;
   align-self: center;
   font-family: Roboto, Arial, Helvetica, serif;
@@ -9,4 +9,11 @@
   font-size: 1.125rem;
   line-height: 1.5rem;
   margin-bottom: 2rem;
+}
+
+@media screen and (min-width: 688px) and (max-width: 767px)
+{
+  .search-results__button {
+    width: 240px;
+  }
 }
