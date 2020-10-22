@@ -13,3 +13,10 @@
     margin: 1rem 0 3rem 0;
   }
 }
+
+@media screen and (min-width: 1024px)
+{
+  .search-container__subtitle {
+    margin: 2rem 0 4rem 0;
+  }
+}
