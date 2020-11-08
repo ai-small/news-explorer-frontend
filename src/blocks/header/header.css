@@ -10,9 +10,18 @@
 
 }
 
-@media screen and (max-width: 768px) and (min-width: 500px)
+@media screen and (max-width: 1279px) and (min-width: 500px)
 {
   .header {
     background: url(../../images/georgia-de-lotz--UsJoNxLaNo-unsplash-768.jpg) no-repeat;
+    background-size: cover;
+  }
+}
+
+@media screen and (min-width: 1280px)
+{
+  .header {
+    background: url(../../images/georgia-de-lotz--UsJoNxLaNo-unsplash-1440.jpg) no-repeat;
+    background-size: cover;
   }
 }
