@@ -7,3 +7,10 @@
   margin: 1rem 1rem 1rem 0;
   border: none;
 }
+
+@media screen and (min-width: 550px)
+{
+  .button__icon {
+    display: none;
+  }
+}

@@ -1,0 +1,12 @@
+.navigation__item_active {
+
+}
+
+
+@media screen and (min-width: 550px)
+{
+  .navigation__item_active {
+    border-bottom: 3px solid white;
+    padding-bottom: 20px;
+  }
+}

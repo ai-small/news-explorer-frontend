@@ -12,3 +12,14 @@
   width: 100%;
   top: 56px;
 }
+
+@media screen and (min-width: 550px)
+{
+  .navigation {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    background: none;
+    top: 0px;
+  }
+}

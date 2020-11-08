@@ -10,3 +10,17 @@
   line-height: 1.5rem;
   align-self: center;
 }
+
+@media screen and (min-width: 550px)
+{
+  .navigation__button {
+    max-width: 152px;
+    border: 1px solid #FFFFFF;
+    background: none;
+    margin: 14px 40px 12px 0;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    min-height: 40px;
+
+  }
+}

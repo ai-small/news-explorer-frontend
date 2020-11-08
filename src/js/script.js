@@ -7,7 +7,7 @@
 
   const overlay = document.querySelector('.overlay');
   const navigation = document.querySelector('.navigation');
-  const headerMenu = document.querySelector('.header__menu');
+  const headerPanel = document.querySelector('.header__panel');
 
   const popupSignIn = document.getElementById('popup-signin');
   const popupSignUp = document.getElementById('popup-signup');
@@ -19,7 +19,7 @@
     if (!navigation.classList.contains('hidden')) {
       navigation.classList.add('hidden');
       navigation.classList.remove('navigation_flex');
-      headerMenu.classList.remove('header__menu_theme_dark');
+      headerPanel.classList.remove('header__panel_theme_dark');
       overlay.classList.add('hidden');
       openMobileMenu.classList.remove('hidden');
       closeMobileMenuButton.classList.add('hidden');
@@ -40,7 +40,7 @@
     if (navigation.classList.contains('hidden')) {
       navigation.classList.remove('hidden');
       navigation.classList.add('navigation_flex');
-      headerMenu.classList.add('header__menu_theme_dark');
+      headerPanel.classList.add('header__panel_theme_dark');
       overlay.classList.remove('hidden');
       openMobileMenu.classList.add('hidden');
       closeMobileMenuButton.classList.remove('hidden');
