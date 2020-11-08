@@ -21,5 +21,20 @@
     justify-content: flex-end;
     background: none;
     top: 0px;
+    padding-right: 40px;
+  }
+}
+
+@media screen and (min-width: 800px)
+{
+  .navigation {
+    padding-right: 4.5rem;
+  }
+}
+
+@media screen and (min-width: 1279px)
+{
+  .navigation {
+    padding-right: 6.5rem;
   }
 }
