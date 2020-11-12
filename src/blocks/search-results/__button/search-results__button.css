@@ -9,11 +9,23 @@
   font-size: 1.125rem;
   line-height: 1.5rem;
   margin-bottom: 2rem;
+  margin-top: 1rem;
 }
 
-@media screen and (min-width: 688px) and (max-width: 767px)
+@media screen and (min-width: 688px)
 {
   .search-results__button {
     width: 240px;
+    margin-top: 2rem;
+    margin-bottom: 2.5rem;
+  }
+}
+
+@media screen and (min-width: 1023px)
+{
+  .search-results__button {
+    width: 288px;
+    margin-top: 4rem;
+    margin-bottom: 5rem;
   }
 }
