@@ -3,3 +3,10 @@
   line-height: 2.5rem;
   margin: 24px 16px 16px 16px;
 }
+
+@media screen and (min-width: 600px)
+{
+  .author__title {
+    margin: 40px 16px 16px 32px;
+  }
+}

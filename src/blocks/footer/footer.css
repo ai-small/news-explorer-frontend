@@ -9,3 +9,10 @@
   display: flex;
   flex-direction: column;
 }
+
+@media screen and (min-width: 600px)
+{
+  .footer {
+    flex-direction: row;
+  }
+}

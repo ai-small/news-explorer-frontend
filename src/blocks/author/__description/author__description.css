@@ -9,3 +9,14 @@
 .author__description:last-child {
   margin: 0 16px 0 16px;
 }
+
+@media screen and (min-width: 600px)
+{
+  .author__description {
+    margin-left: 32px;
+  }
+
+  .author__description:last-child {
+    margin-left: 32px;
+  }
+}

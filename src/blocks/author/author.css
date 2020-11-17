@@ -7,3 +7,11 @@
   flex-direction: column;
   margin-bottom: 70px;
 }
+
+@media screen and (min-width: 600px)
+{
+  .author {
+    flex-direction: row;
+    margin-bottom: 73px;
+  }
+}
