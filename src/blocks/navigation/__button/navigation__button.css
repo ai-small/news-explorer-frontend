@@ -24,3 +24,12 @@
 
   }
 }
+
+@media screen and (min-width: 1280px)
+{
+  .navigation__button {
+    font-size: 1.125rem;
+    min-width: 176px;
+    min-height: 48px;
+  }
+}
