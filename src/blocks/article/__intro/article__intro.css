@@ -4,4 +4,16 @@
   font-size: 1rem;
   line-height: 1.375rem;
   margin: 10px 16px 0 16px;
+  -webkit-line-clamp: 4;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+@media screen and (min-width: 1280px)
+{
+  .article__intro {
+    margin: 16px 16px 0 24px;
+  }
 }

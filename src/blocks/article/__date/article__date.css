@@ -7,3 +7,10 @@
   padding: 0 1rem;
   margin: 0;
 }
+
+@media screen and (min-width: 1280px)
+{
+  .article__date {
+    padding: 0 24px;
+  }
+}

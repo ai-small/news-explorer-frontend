@@ -1,6 +1,8 @@
 @import url(./__avatar/author__avatar.css);
 @import url(./__title/author__title.css);
 @import url(./__description/author__description.css);
+@import url(./__text-block/author__text-block.css);
+@import url(./__paragraph/author__paragraph.css);
 
 .author {
   display: flex;
@@ -13,5 +15,12 @@
   .author {
     flex-direction: row;
     margin-bottom: 73px;
+  }
+}
+
+@media screen and (min-width: 1280px)
+{
+  .author {
+    margin-bottom: 106px;
   }
 }

@@ -1,4 +1,8 @@
 .search-results__title_not-found {
   font-size: 1.625rem;
   line-height: 1.875rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  padding: 0;
 }
+

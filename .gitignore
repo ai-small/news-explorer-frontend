@@ -15,6 +15,7 @@ node_modules
 .vscode
 
 #Other
+dist
 .env
 package_old.json
 src/images/pixPerfect
