@@ -3,3 +3,10 @@
   flex-direction: column;
   margin: 0 16px;
 }
+
+@media screen and (min-width: 500px)
+{
+  .popup__content {
+    margin: 0 35px 28px 35px;
+  }
+}

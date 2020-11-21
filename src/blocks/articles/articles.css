@@ -8,22 +8,21 @@
 @media screen and (min-width: 500px)
 {
   .articles {
-    grid-template-columns: repeat(auto-fill, minmax(224px, 224px));
+    /* grid-template-columns: repeat(auto-fill, minmax(224px, 224px)); */
   }
 }
 
-@media screen and (min-width: 703px)
+@media screen and (min-width: 750px)
 {
   .articles {
     margin-top: 8px;
-    /* grid-template-columns: repeat(auto-fill, minmax(224px, 224px)); */
+    grid-template-columns: repeat(3, minmax(224px, 400px));
   }
 }
 
 @media screen and (min-width: 1000px)
 {
   .articles {
-    grid-template-columns: repeat(3, minmax(224px, 400px));
     grid-gap: 1rem;
   }
 }
