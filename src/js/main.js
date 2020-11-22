@@ -1,4 +1,5 @@
-// eslint-disable-next-line wrap-iife
+import '../pages/index.css';
+
 (function () {
   const body = document.body;
   const openMobileMenuButton = document.querySelector('.button__icon_burger');
@@ -60,7 +61,6 @@
   }
 
   //listeners
-
 
   // eslint-disable-next-line prefer-arrow-callback
   openMobileMenuButton.addEventListener('click', openMobileMenu);

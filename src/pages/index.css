@@ -17,12 +17,8 @@
 @import url(../blocks/form/form.css);
 @import url(../blocks/overflow-hidden/overflow-hidden.css);
 @import url(../blocks/articles/articles.css);
-
+/*
 
 body {
   background-color: #FFFFFF;
-}
-
-/* section, h1, p, form, button, div, ul, nav {
-  border: 1px solid red;
 } */
