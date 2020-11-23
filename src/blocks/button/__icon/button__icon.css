@@ -1,4 +1,5 @@
 @import url(./_burger/button__icon_burger.css);
+@import url(./_burger-black/button__icon_burger-black.css);
 @import url(./_close/button__icon_close.css);
 
 .button__icon {

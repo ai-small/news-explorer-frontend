@@ -1,7 +1,7 @@
 .search-results__title {
   font-size: 1.88rem;
   line-height: 2.125rem;
-  margin: 0 0 1.5rem 0;
+  margin: 0;
   padding-top: 2rem;
 }
 
@@ -17,7 +17,7 @@
   .search-results__title {
     font-size: 2.5rem;
     line-height: 2.88rem;
-    margin-bottom: 55px;
+    margin-bottom: 17px;
     padding-top: 80px;
   }
 }

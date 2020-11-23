@@ -4,6 +4,8 @@
 @import url(./__intro/article__intro.css);
 @import url(./__source/article__source.css);
 @import url(./__bookmark-icon/article__bookmark-icon.css);
+@import url(./__delete-icon/article__delete-icon.css);
+@import url(./__keyword/article__keyword.css);
 
 .article {
   background: #ffffff;

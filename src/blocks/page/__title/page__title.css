@@ -1,0 +1,10 @@
+.page__title {
+  margin: 8px 0 0 0;
+  color: #1A1B22;
+  opacity: 0.5;
+  font-family: Roboto, Arial, Helvetica, serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.75rem;
+  line-height: 1.5rem;
+}

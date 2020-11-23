@@ -21,9 +21,9 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       inject: false,
-      title: 'News Explorer - поиск новостей',
+      title: 'Сохраненные статьи',
       template: path.resolve(__dirname, './src/saved.html'),
-      filename: 'saved/saved.html',
+      filename: 'saved.html',
       chunks: ['saved']
     }),
   ],

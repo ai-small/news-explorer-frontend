@@ -1,0 +1,10 @@
+.navigation__button_logout-white {
+
+}
+
+.navigation__button_logout-white::after {
+  content: url(../../../../images/logout-white.svg);
+  position: relative;
+  top: 5px;
+  margin-left: 16px;
+}

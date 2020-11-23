@@ -1,5 +1,5 @@
-.article__bookmark-icon {
-  background: #fff url(../../../images/bookmark.svg) no-repeat;
+.article__delete-icon {
+  background: url(../../../images/trash.svg) no-repeat;
   width: 40px;
   height: 40px;
   top: 1rem;
@@ -9,7 +9,7 @@
   border-radius: 8px;
 }
 
-.article__bookmark-icon::after {
+.article__delete-icon::after {
   content: attr(data-tooltip);
   opacity: 0;
   visibility: hidden;
@@ -21,7 +21,7 @@
   font-size: 0.625rem;
   line-height: 0.75rem;
   color: #000000;
-  width: 180px;
+  width: 159px;
   height: 40px;
   position: absolute;
   padding-top: 16px;
@@ -30,23 +30,9 @@
   right: 45px;
 }
 
-.article__bookmark-icon:hover::after {
+/* повторяющиеся свойства вынести в отдельный класс */
+
+.article__delete-icon:hover::after {
   opacity: 1;
   visibility: visible;
-}
-
-@media screen and (min-width: 425px) and (max-width: 1024px)
-{
-  .article__bookmark-icon {
-    top: 0.5rem;
-    right: 0.5rem;
-  }
-}
-
-@media screen and (min-width: 1280px)
-{
-  .article__bookmark-icon {
-    top: 1.5rem;
-    right: 1.5rem;
-  }
 }
