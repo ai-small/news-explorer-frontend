@@ -7,7 +7,7 @@ module.exports = {
 
   entry: {
     main: path.resolve(__dirname, './src/js/main.js'),
-    // saved: path.resolve(__dirname, './src/js/saved.js'),
+    saved: path.resolve(__dirname, './src/js/saved.js'),
   },
 
   plugins: [
@@ -17,13 +17,15 @@ module.exports = {
       title: 'News Explorer - поиск новостей',
       template: path.resolve(__dirname, './src/index.html'),
       filename: 'index.html',
+      chunks: ['main'],
     }),
-    // new HtmlWebpackPlugin({
-    //   inject: false,
-    //   title: 'News Explorer - поиск новостей',
-    //   template: path.resolve(__dirname, './src/saved.html'),
-    //   filename: 'saved.html',
-    // }),
+    new HtmlWebpackPlugin({
+      inject: false,
+      title: 'News Explorer - поиск новостей',
+      template: path.resolve(__dirname, './src/saved.html'),
+      filename: 'saved/saved.html',
+      chunks: ['saved']
+    }),
   ],
 
   module: {
