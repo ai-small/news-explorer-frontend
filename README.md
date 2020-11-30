@@ -18,7 +18,9 @@ HTML, CSS
 
 ## Запуск
 :pushpin: `npm run dev` - запуск проекта в режиме разработки, 
+
 :pushpin: `npm run build` - сборка проекта в режиме production, 
+
 :pushpin: `npm run deploy` - развертывание проета на GitHub Pages.
 
 
