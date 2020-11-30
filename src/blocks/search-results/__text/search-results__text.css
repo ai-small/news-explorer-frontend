@@ -1,0 +1,9 @@
+.search-results__text {
+  font-family: Roboto, Arial, Helvetica, serif;
+  font-weight: 400;
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+  text-align: center;
+  color: #B6BCBF;
+  margin: 0 16px 80px 16px;
+}

@@ -1,0 +1,32 @@
+/* @import url(../__avatar/_width/author__avatar_width.css); */
+
+.author__avatar {
+  border-radius: 50%;
+  max-width: 272px;
+  align-self: center;
+  /* margin-top: 2rem; */
+}
+
+.author__avatar img {
+  margin-top: 2rem;
+}
+
+@media screen and (min-width: 600px)
+{
+  .author__avatar img{
+    max-width: 232px;
+    margin-top: 3.8rem;
+  }
+}
+
+@media screen and (min-width: 1280px)
+{
+  .author__avatar {
+    max-width: 464px;
+  }
+
+  .author__avatar img{
+    max-width: 464px;
+    margin-top: 5rem;
+  }
+}

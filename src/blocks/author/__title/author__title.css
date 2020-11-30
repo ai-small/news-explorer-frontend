@@ -1,0 +1,21 @@
+.author__title {
+  font-size: 1.875rem;
+  line-height: 2.5rem;
+  margin: 24px 0 16px 0;
+}
+
+@media screen and (min-width: 600px)
+{
+  .author__title {
+    margin: 40px 16px 16px 32px;
+  }
+}
+
+@media screen and (min-width: 1280px)
+{
+  .author__title {
+    font-size: 2.5rem;
+    line-height: 2.875rem;
+    margin-bottom: 23px;
+  }
+}

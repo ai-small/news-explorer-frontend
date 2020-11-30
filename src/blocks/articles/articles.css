@@ -1,0 +1,32 @@
+.articles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(224px, 288px));
+  grid-gap: 0.5rem;
+  justify-content: center;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+@media screen and (min-width: 750px)
+{
+  .articles {
+    margin-top: 8px;
+    grid-template-columns: repeat(3, minmax(224px, 400px));
+  }
+}
+
+@media screen and (min-width: 1000px)
+{
+  .articles {
+    grid-gap: 1rem;
+    padding-bottom: 62px;
+  }
+}
+
+@media screen and (min-width: 1280px)
+{
+  .articles {
+    padding-top: 62px;
+
+  }
+}

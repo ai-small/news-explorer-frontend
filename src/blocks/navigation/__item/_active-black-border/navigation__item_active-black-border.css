@@ -1,0 +1,18 @@
+.navigation__item_active-black-border {
+
+}
+
+@media screen and (min-width: 590px)
+{
+  .navigation__item_active-black-border {
+    border-bottom: 3px solid #1A1B22;
+    padding-bottom: 20px;
+  }
+}
+
+@media screen and (min-width: 1280px)
+{
+  .navigation__item_active-black-border {
+    padding-bottom: 24px;
+  }
+}

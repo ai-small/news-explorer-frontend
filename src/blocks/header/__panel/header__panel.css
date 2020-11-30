@@ -1,0 +1,25 @@
+@import url(./_theme/header__panel_theme_dark.css);
+
+.header__panel {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px #D1D2D6;
+  box-shadow: inset 0px -1px 0px rgba(255, 255, 255, 0.2);
+
+}
+
+@media screen and (min-width: 590px)
+{
+  .header__panel {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+@media screen and (min-width: 1280px)
+{
+  .header__panel {
+    margin-top: 5px;
+  }
+}

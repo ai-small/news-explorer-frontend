@@ -1,0 +1,7 @@
+.form__text-container {
+  align-self: center;
+  margin: 0;
+  font-family: Inter, Roboto, Arial, Helvetica, serif;
+  font-weight: 500;
+  font-size: 0.875rem;
+}

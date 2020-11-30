@@ -1,0 +1,17 @@
+.footer__copyright {
+  font-family: Roboto, Arial, Helvetica, serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.375rem;
+  color: #B6BCBF;
+  margin: 28px auto 70px auto;
+}
+
+@media screen and (min-width: 600px)
+{
+  .footer__copyright {
+    order: 0;
+    flex-shrink: 0;
+    margin: 2px 16px 18px 0;
+  }
+}

@@ -1,0 +1,12 @@
+.article__image {
+  border-radius: 16px 16px 0 0;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+@media screen and (min-width: 1280px)
+{
+  .article__image {
+    margin-bottom: 21px;
+  }
+}

@@ -1,0 +1,7 @@
+.search-results__not-found {
+  display: none;
+  /* заменить на flex для отображения */
+  flex-direction: column;
+  align-items: center;
+
+}

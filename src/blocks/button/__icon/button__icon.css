@@ -1,0 +1,20 @@
+@import url(./_burger/button__icon_burger.css);
+@import url(./_burger-black/button__icon_burger-black.css);
+@import url(./_close/button__icon_close.css);
+
+.button__icon {
+  width: 24px;
+  height: 24px;
+  margin: 1rem 0;
+  border: none;
+}
+
+@media screen and (min-width: 590px)
+{
+  .button__icon {
+    display: none;
+    width: 40px;
+    height: 40px;
+  }
+}
+

@@ -1,0 +1,27 @@
+@import url(./__avatar/author__avatar.css);
+@import url(./__title/author__title.css);
+@import url(./__description/author__description.css);
+@import url(./__text-block/author__text-block.css);
+@import url(./__paragraph/author__paragraph.css);
+
+.author {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 65px;
+  /* +5px footer / пересчитать на медиа запросах */
+}
+
+@media screen and (min-width: 600px)
+{
+  .author {
+    flex-direction: row;
+    margin-bottom: 53px;
+  }
+}
+
+@media screen and (min-width: 1280px)
+{
+  .author {
+    margin-bottom: 93px;
+  }
+}

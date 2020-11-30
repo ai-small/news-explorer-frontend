@@ -1,0 +1,18 @@
+.footer__navigation-item {
+  text-decoration: none;
+  color: #1A1B22;
+}
+
+@media screen and (min-width: 600px)
+{
+  .footer__navigation-item {
+    margin-right: 1rem;
+  }
+}
+
+@media screen and (min-width: 1280px)
+{
+  .footer__navigation-item {
+    margin-right: 2rem;
+  }
+}

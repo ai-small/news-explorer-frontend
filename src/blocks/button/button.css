@@ -1,0 +1,14 @@
+@import url(./__icon/button__icon.css);
+@import url(./_type/button_type_text.css);
+@import url(./_type/button_type_button.css);
+@import url(./_color/button_color_blue.css);
+@import url(./_disabled/button_disabled.css);
+
+
+.button {
+
+}
+
+.button:focus {
+  outline: thin dotted;
+}

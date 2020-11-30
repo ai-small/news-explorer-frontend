@@ -1,0 +1,11 @@
+.author__avatar_width {
+
+}
+
+@media screen and (min-width: 600px)
+{
+  .author__avatar_width {
+    max-width: 232px;
+    margin-top: 3.8rem;
+  }
+}

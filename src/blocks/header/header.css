@@ -1,0 +1,28 @@
+@import url(./__logo/header__logo.css);
+@import url(./__panel/header__panel.css);
+@import url(./__panel/_theme/header__panel_theme_white.css);
+
+.header {
+  display: flex;
+  flex-direction: column;
+  color: #ffffff;
+  background: url(../../images/georgia-de-lotz--UsJoNxLaNo-unsplash-320.jpg) no-repeat;
+  background-size: cover;
+
+}
+
+@media screen and (max-width: 1279px) and (min-width: 500px)
+{
+  .header {
+    background: url(../../images/georgia-de-lotz--UsJoNxLaNo-unsplash-768.jpg) no-repeat;
+    background-size: cover;
+  }
+}
+
+@media screen and (min-width: 1280px)
+{
+  .header {
+    background: url(../../images/georgia-de-lotz--UsJoNxLaNo-unsplash-1440.jpg) no-repeat;
+    background-size: cover;
+  }
+}

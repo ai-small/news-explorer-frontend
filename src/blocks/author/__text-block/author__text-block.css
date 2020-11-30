@@ -1,0 +1,16 @@
+.author__text-block {
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center; */
+}
+
+@media screen and (min-width: 800px)
+{
+  .author__text-block{
+    /* display: flex;
+    flex-direction: column; */
+    margin-left: 24px;
+    margin-top: 92px;
+    /* justify-content: center; */
+  }
+}

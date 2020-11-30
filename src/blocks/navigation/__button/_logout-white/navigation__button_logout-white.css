@@ -1,0 +1,39 @@
+.navigation__button_logout-white {
+
+}
+
+.navigation__button_logout-white::after {
+  content: url(../../../../images/logout-white.svg);
+  position: relative;
+  top: 5px;
+  margin-left: 16px;
+}
+
+@media screen and (min-width: 590px)
+{
+  .navigation__button_logout-white {
+    color: #000;
+    border-color: #D1D2D6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    min-width: auto;
+    padding-left: 14px;
+  }
+
+  .navigation__button_logout-white::after {
+    content: url(../../../../images/logout-black.svg);
+    top: 3px;
+    padding-right: 6px;
+    margin-left: 6px;
+
+  }
+}
+
+@media screen and (min-width: 1280px)
+{
+  .navigation__button_logout-white {
+    padding-left: 21px;
+  }
+}

@@ -1,0 +1,22 @@
+.search-container__subtitle {
+  font-family: Roboto, Arial, Helvetica, serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+  margin: 1rem 0;
+}
+
+@media screen and (min-width: 470px)
+{
+  .search-container__subtitle {
+    margin: 1rem 0 3rem 0;
+  }
+}
+
+@media screen and (min-width: 1024px)
+{
+  .search-container__subtitle {
+    margin: 2rem 0 4rem 0;
+  }
+}

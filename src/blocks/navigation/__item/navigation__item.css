@@ -1,0 +1,28 @@
+@import url(../__item/_active/navigation__item_active.css);
+@import url(../__item/_active-black-border/navigation__item_active-black-border.css);
+
+.navigation__item {
+  text-decoration: none;
+  color: #ffffff;
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 1.125rem;
+  line-height: 3.5rem;
+}
+
+@media screen and (min-width: 590px)
+{
+  .navigation__item {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    margin-right: 1rem;
+  }
+}
+
+@media screen and (min-width: 1280px)
+{
+  .navigation__item {
+    font-size: 1.125rem;
+    margin-right: 2rem;
+  }
+}

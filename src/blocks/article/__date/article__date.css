@@ -1,0 +1,16 @@
+.article__date {
+  font-family: Source Sans Pro, Arial, Helvetica, serif;
+  font-weight: 400;
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+  color: #B6BCBF;
+  padding: 0 1rem;
+  margin: 0;
+}
+
+@media screen and (min-width: 1280px)
+{
+  .article__date {
+    padding: 0 24px;
+  }
+}

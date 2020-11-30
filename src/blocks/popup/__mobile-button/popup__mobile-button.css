@@ -1,0 +1,14 @@
+.popup__mobile-button {
+  position: absolute;
+  top: -56px;
+  right: 0;
+}
+
+@media screen and (min-width: 500px)
+{
+  .popup__mobile-button {
+    display: block;
+    top: -62px;
+    right: -46px;
+  }
+}

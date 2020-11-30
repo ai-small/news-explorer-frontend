@@ -1,0 +1,10 @@
+.button__icon_close {
+  background: url(../../../../images/close.svg) no-repeat;
+}
+
+@media screen and (min-width: 500px)
+{
+  .button__icon_close {
+    background-size: contain;
+  }
+}

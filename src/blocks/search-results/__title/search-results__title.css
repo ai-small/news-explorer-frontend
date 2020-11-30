@@ -1,0 +1,23 @@
+.search-results__title {
+  font-size: 1.88rem;
+  line-height: 2.125rem;
+  margin: 0;
+  padding-top: 2rem;
+}
+
+@media screen and (min-width: 600px)
+{
+  .search-results__title {
+    padding-top: 2.5rem;
+  }
+}
+
+@media screen and (min-width: 1280px)
+{
+  .search-results__title {
+    font-size: 2.5rem;
+    line-height: 2.88rem;
+    margin-bottom: 17px;
+    padding-top: 80px;
+  }
+}
