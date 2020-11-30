@@ -7,7 +7,7 @@
     "build": "webpack --config webpack.prod.js",
     "dev": "webpack serve --config webpack.dev.js",
     "watch": "webpack --watch",
-    "deploy": "cross-env NODE_ENV=production gh-pages -d dist"
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -33,6 +33,7 @@
     "css-loader": "5.0.1",
     "cssnano": "4.1.10",
     "file-loader": "6.2.0",
+    "gh-pages": "3.1.0",
     "html-webpack-plugin": "5.0.0-alpha.14",
     "image-webpack-loader": "7.0.1",
     "mini-css-extract-plugin": "1.3.1",
@@ -44,5 +45,7 @@
     "webpack-dev-server": "3.11.0",
     "webpack-merge": "5.4.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "babel-polyfill": "6.26.0"
+  }
 }

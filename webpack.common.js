@@ -40,7 +40,7 @@ module.exports = {
         use: {
           loader: 'file-loader',
           options: {
-            name: './vendor/fonts/[name].[ext]'
+            name: './vendor/fonts/[name].[ext]',
           }
         }
       },
@@ -50,8 +50,8 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              name: './images/[name].[ext]',
-              esModule: false
+              name: 'images/[name].[ext]',
+              esModule: false,
             }
           },
           {
@@ -84,7 +84,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '',
-    filename: '[name].[chunkhash].js'
+    filename: 'js/[name].[chunkhash].js'
   },
 
 }
