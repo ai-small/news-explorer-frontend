@@ -22,7 +22,7 @@
         <nav class="navigation hidden">
           <ul class="navigation__list">
             <li><a href="./" class="navigation__item navigation__item_active">Главная</a></li>
-            <li><a href="./saved.html" class="navigation__item hidden">Сохранённые статьи</a></li>
+            <li><a href="./" class="navigation__item hidden">Сохранённые статьи</a></li>
           </ul>
           <button class="button button_type_button navigation__button">Авторизоваться</button>
         </nav>
@@ -39,11 +39,12 @@
     <main>
       <div class="overlay hidden"></div>
       <section class="search-results page__section page__container">
-        <!--  -->
+        <!-- Чтобы открыть блок с прелоудером, нужно убрать класс hidden -->
         <div class="search-results__preloader hidden">
           <span class="search-results__circle-preloader"></span>
           <p class="search-results__text">Идет поиск новостей...</p>
         </div>
+        <!-- Чтобы сделать видимым блок "Не найдено", нужно установить значение display: flex для блока  -->
         <div class="search-results__not-found">
           <span class="search-results__not-found-icon"></span>
           <p class="title search-results__title search-results__title_not-found">Ничего не найдено</p>

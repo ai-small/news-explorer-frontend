@@ -15,13 +15,13 @@
 {
   .author {
     flex-direction: row;
-    margin-bottom: 73px;
+    margin-bottom: 53px;
   }
 }
 
 @media screen and (min-width: 1280px)
 {
   .author {
-    margin-bottom: 106px;
+    margin-bottom: 93px;
   }
 }

@@ -4,14 +4,14 @@
   margin: 1rem 0 0 0
 }
 
-@media screen and (min-width: 500px) and (max-width: 549px)
+@media screen and (min-width: 500px) and (max-width: 589px)
 {
   .navigation__list {
     margin: 1rem 0 0 1.5rem;
   }
 }
 
-@media screen and (min-width: 550px)
+@media screen and (min-width: 590px)
 {
   .navigation__list {
     margin: 0;

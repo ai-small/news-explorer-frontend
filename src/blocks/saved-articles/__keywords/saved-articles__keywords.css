@@ -7,3 +7,18 @@
   line-height: 1.5rem;
   margin: 17px 0 32px 0;
 }
+
+@media screen and (min-width: 550px)
+{
+  .saved-articles__keywords {
+    font-size: 0.875rem;
+  }
+}
+
+@media screen and (min-width: 1280px)
+{
+  .saved-articles__keywords {
+    font-size: 1.125rem;
+    margin: 30px 0 56px 0;
+  }
+}

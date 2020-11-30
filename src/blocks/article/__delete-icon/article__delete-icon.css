@@ -2,8 +2,8 @@
   background: url(../../../images/trash.svg) no-repeat;
   width: 40px;
   height: 40px;
-  top: 1rem;
-  right: 1rem;
+  top: 16px;
+  right: 16px;
   position: absolute;
   border: none;
   border-radius: 8px;
@@ -28,6 +28,7 @@
   box-sizing: border-box;
   top: 0;
   right: 45px;
+  z-index: 1;
 }
 
 /* повторяющиеся свойства вынести в отдельный класс */
@@ -35,4 +36,21 @@
 .article__delete-icon:hover::after {
   opacity: 1;
   visibility: visible;
+}
+
+@media screen and (min-width: 550px)
+{
+  .article__delete-icon {
+    top: 8px;
+    right: 8px;
+
+  }
+}
+
+@media screen and (min-width: 1280px)
+{
+  .article__delete-icon {
+    top: 24px;
+    right: 24px;
+  }
 }

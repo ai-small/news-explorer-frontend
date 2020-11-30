@@ -1,4 +1,4 @@
-@import url(./_logout-white/navigation__button_logout-white.css);
+/* @import url(./_logout-white/navigation__button_logout-white.css); */
 
 .navigation__button {
   max-width: 288px;
@@ -13,7 +13,7 @@
   align-self: center;
 }
 
-@media screen and (min-width: 550px)
+@media screen and (min-width: 590px)
 {
   .navigation__button {
     max-width: 152px;

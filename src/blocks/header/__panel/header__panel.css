@@ -8,7 +8,7 @@
 
 }
 
-@media screen and (min-width: 550px)
+@media screen and (min-width: 590px)
 {
   .header__panel {
     flex-direction: row;

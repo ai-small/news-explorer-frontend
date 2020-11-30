@@ -1,7 +1,6 @@
 @import url(./__item/navigation__item.css);
 @import url(./__list/navigation__list.css);
 @import url(./__button/navigation__button.css);
-/* @import url(./__button/_logout-white/navigation__button_logout-white.css); */
 @import url(./_flex/navigation_flex.css);
 
 .navigation {
@@ -14,7 +13,7 @@
   top: 56px;
 }
 
-@media screen and (min-width: 550px)
+@media screen and (min-width: 590px)
 {
   .navigation {
     position: relative;
@@ -32,7 +31,7 @@
   }
 }
 
-@media screen and (min-width: 500px) and (max-width: 549px)
+@media screen and (min-width: 500px) and (max-width: 589px)
 {
   .navigation {
     margin-left: -2.5rem;
