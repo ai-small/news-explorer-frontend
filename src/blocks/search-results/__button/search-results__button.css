@@ -9,7 +9,12 @@
   font-size: 1.125rem;
   line-height: 1.5rem;
   margin-bottom: 2rem;
-  /* margin-top: 1rem; +24px articles / подумать, как быть с кнопкой - влияют расстояния на 2 странице!   */
+  transition: opacity linear 0.3s;
+}
+
+.search-results__button:hover {
+  opacity: 0.9;
+  transition: opacity linear 0.3s;
 }
 
 @media screen and (min-width: 688px)

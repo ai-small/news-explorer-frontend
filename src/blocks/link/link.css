@@ -1,0 +1,12 @@
+.link {
+  transition: opacity linear 0.3s;
+}
+
+.link:hover {
+  opacity: 0.85;
+  transition: opacity linear 0.3s;
+}
+
+.link:focus {
+  outline: thin dotted;
+}

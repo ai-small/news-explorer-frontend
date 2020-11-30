@@ -9,6 +9,11 @@
   border-radius: 8px;
 }
 
+.article__bookmark-icon:hover {
+  background: #fff url(../../../images/bookmark-hover.svg) no-repeat;
+  transition: background linear 0.3s;
+}
+
 .article__bookmark-icon::after {
   content: attr(data-tooltip);
   opacity: 0;
@@ -28,11 +33,13 @@
   box-sizing: border-box;
   top: 0;
   right: 45px;
+  transition: opacity linear 0.3s;
 }
 
 .article__bookmark-icon:hover::after {
   opacity: 1;
   visibility: visible;
+  transition: opacity linear 0.3s;
 }
 
 @media screen and (min-width: 425px) and (max-width: 1024px)
