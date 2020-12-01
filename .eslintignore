@@ -1,1 +1,7 @@
-public/*
+dist/*
+node_modules/*
+src/blocks/*
+src/images/*
+src/pages/*
+src/vendor/*
+
