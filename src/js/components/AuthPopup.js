@@ -37,21 +37,11 @@ export default class AuthPopup extends Popup {
 
   constructor(params) {
     super(params); // зовем родительский класс
-    // this.popup = params.popup;
     this.popupContainer = params.popupContainer;
-    // this.body = params.body;
-    // this.overlay = params.overlay;
     this.createFormValidator = params.createFormValidator;
-    // this.regPopup = params.regPopup;
-    // this.regPopup.open = this.regPopup.open.bind(this.regPopup);
   }
 
-  // + отрисовывает содержимое попапа авторизации, используя шаблон
-  // + добавить валидацию на форму
-  // +добавить слушатели на инпуты и сабмит
-  // + добавляет слушатель на закрытие
   _renderContent = () => {
-    // super.renderFormContent(AuthPopup._markupAuthPopup, 'signin')
     super.setContent(AuthPopup._markupAuthPopup);
     this.form = document.forms.signin;
     this.submitButton = this.form.querySelector('#submit-button');
@@ -83,12 +73,7 @@ export default class AuthPopup extends Popup {
     console.log('submit!')
   }
 
-  saveDependencies = (dependencies) => {
-    super.saveDependencies(dependencies);
-  }
-
   setEventListeners = () => {
-    console.log(this.dependencies);
     super.setEventListeners();
     this.form.addEventListener('submit', this.submitHandler);
     this.regButton.addEventListener('click', this.dependencies.regPopup.open);
@@ -96,6 +81,6 @@ export default class AuthPopup extends Popup {
 
   removeListeners = () => {
     this.form.removeEventListener('submit', this.submitHandler);
-    this.regButton.addEventListener('click', this.dependencies.regPopup.open);
+    this.regButton.removeEventListener('click', this.dependencies.regPopup.open);
   }
 }

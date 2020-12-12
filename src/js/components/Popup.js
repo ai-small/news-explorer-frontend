@@ -21,21 +21,13 @@ export default class Popup {
     Array.from(this.getTemplate(markup)).forEach((node) => this.popupContainer.appendChild(node));
   }
 
-  // renderFormContent(markup, formName) {
-  //   this.setContent(markup);
-  //   this.form = document.forms.formName;
-  //   this.submitButton = this.form.querySelector('#submit-button');
-  //   this.textButton = this.form.querySelector('.button_type_text');
-  // }
-
   // очищает содержимое контейнера
   clearContent() {
     const title = this.popup.querySelector('.popup__title');
     const form = this.popup.querySelector('.form');
-    console.log('clearContent', this.popup.querySelector('.popup__title'), this.popup.querySelector('.form'));
     if (this.popup.contains(title) && this.popup.contains(form)) {
-    this.popup.querySelector('.popup__title').remove();
-    this.popup.querySelector('.form').remove();
+      this.popup.querySelector('.popup__title').remove();
+      this.popup.querySelector('.form').remove();
     }
   }
 
@@ -72,7 +64,6 @@ export default class Popup {
   }
 
   removeListeners() {
-    console.log('remove listeners')
     this.closePopupButton.removeEventListener('click', this.close);
     this.overlay.removeEventListener('click', this._clickOutToClosePopup);
     document.removeEventListener('keydown', this._escapeKeyPressed);

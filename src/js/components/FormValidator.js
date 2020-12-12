@@ -20,6 +20,18 @@ export default class FormValidator {
     this._getErrorSpan(input).textContent = '';
   }
 
+  _resetServerError = () => {
+    this.errorSpans.serverError.textContent = '';
+  }
+
+  _setInputsEnabledState = (inputs) => {
+    inputs.forEach((input) => input.removeAttribute('disabled'));
+  }
+
+  _setInputsDisabledState = (inputs) => {
+    inputs.forEach((input) => input.setAttribute('disabled', 'disabled'));
+  }
+
   _setButtonEnabledState = (button) => {
     button.removeAttribute('disabled');
     button.classList.remove('button_disabled')
@@ -32,6 +44,7 @@ export default class FormValidator {
 
   _checkInputValidity = (input) => {
     this._resetError(input);
+    this._resetServerError();
     input.setCustomValidity("");
 
     if (input.validity.valueMissing) {
@@ -64,9 +77,9 @@ export default class FormValidator {
   inputHandler = (event) => {
     const input = event.target;
     this._checkInputValidity(input);
-    console.log('input valid:', this._checkInputValidity(input))
-    console.log(this.form.checkValidity);
-    console.log('form valid:', this.form.checkValidity())
+    // console.log('input valid:', this._checkInputValidity(input))
+    // console.log(this.form.checkValidity);
+    // console.log('form valid:', this.form.checkValidity())
     if (this.form.checkValidity()) {
       this._setButtonEnabledState(this.button)
     } else {

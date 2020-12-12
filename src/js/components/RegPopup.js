@@ -17,7 +17,7 @@ export default class RegPopup extends Popup {
       </div>
       <div class="form__field">
         <label for="signup-name" class="form__label">Имя</label>
-        <input class="form__input" id="signup-name" type="text" name="name-signup" pattern="^[а-яё]+(?:(?:-|\s)[А-ЯЁ][а-яё]+)?$" minlength="2" maxlength="30" placeholder="Введите своё имя" required="">
+        <input class="form__input" id="signup-name" type="text" name="name-signup" pattern="^[A-Z,a-z,А-ЯЁа-яё]+(?:(?:-|\s)[A-Z,А-ЯЁ][а-яё]+)?$" minlength="2" maxlength="30" placeholder="Введите своё имя" required="">
         <span class="form__error" id="name-error"></span>
       </div>
       <div class="form__submit-area">
@@ -28,10 +28,12 @@ export default class RegPopup extends Popup {
   </form>
 `;
 
-  constructor (params) {
+  constructor(params, mainApi) {
     super(params);
     this.popupContainer = params.popupContainer;
     this.createFormValidator = params.createFormValidator;
+    this.mainApi = mainApi;
+    this.submitHandler = this.submitHandler.bind(this);
   }
 
   _renderContent = () => {
@@ -39,34 +41,47 @@ export default class RegPopup extends Popup {
     this.form = document.forms.signup;
     this.submitButton = this.form.querySelector('#submit-button');
     this.authButton = this.form.querySelector('.button_type_text');
-    const errorSpans = {
+    this.errorSpans = {
       emailError: this.form.querySelector('#email-error'),
       passwordError: this.form.querySelector('#password-error'),
       textError: this.form.querySelector('#name-error'),
       serverError: this.form.querySelector('.form__server-error'),
     };
-    this.dependencies.createFormValidator(this.form, errorSpans, this.submitButton).setEventListeners();
+    this.formValidator = this.dependencies.createFormValidator(this.form, this.errorSpans, this.submitButton);
+    this.formValidator.setEventListeners();
+    // this.dependencies.createFormValidator(this.form, this.errorSpans, this.submitButton).setEventListeners();
     this.setEventListeners();
   }
 
   open = () => {
     super.open();
     super.clearContent();
-    super.removeListeners()
+    super.removeListeners();
     this._renderContent();
   }
 
   close = (event) => {
     super.close(event);
     super.removeListeners();
-    // this.removeListeners();
+    this.removeListeners();
   }
 
-  submitHandler = (event) => {
+  async submitHandler(event) {
     event.preventDefault();
-    // на время выполнения запроса - заблокировать кнопку и инпуты
-    console.log('submit!')
-    console.log(event)
+    const inputs = Array.from(this.form.elements).filter(element => element.tagName === 'INPUT');
+    const inputValues = inputs.map(input => input.value);
+    this.formValidator._setButtonDisabledState(this.submitButton);
+    this.formValidator._setInputsDisabledState(inputs);
+    try {
+      const newUserData = await this.mainApi.signup(inputValues);
+      if (newUserData) {
+        this.dependencies.successPopup.open();
+      }
+    } catch (error) {
+      this.errorSpans.serverError.textContent = error.message;
+      this.formValidator._setButtonEnabledState(this.submitButton);
+      this.formValidator._setInputsEnabledState(inputs);
+    }
   }
 
   setEventListeners = () => {
@@ -75,7 +90,7 @@ export default class RegPopup extends Popup {
     this.authButton.addEventListener('click', this.dependencies.authPopup.open);
   }
 
-  saveDependencies = (dependencies) => {
-    super.saveDependencies(dependencies);
-  }
+  // saveDependencies = (dependencies) => {
+  //   super.saveDependencies(dependencies);
+  // }
 }
