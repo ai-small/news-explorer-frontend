@@ -90,7 +90,5 @@ export default class RegPopup extends Popup {
     this.authButton.addEventListener('click', this.dependencies.authPopup.open);
   }
 
-  // saveDependencies = (dependencies) => {
-  //   super.saveDependencies(dependencies);
-  // }
+  // снятие слушателей!
 }

@@ -1,16 +1,14 @@
 const body = document.body;
 const authButton = document.querySelector('#openAuthPopup');
-const closePopupButton = document.querySelector('#close-popup');
-const overlay = body.querySelector('.overlay');
-const popup = document.querySelector('.popup');
-const popupContainer = document.querySelector('.popup__content');
+const navigation = document.querySelector('#navigation');
+const navigationList = document.querySelector('.navigation__list');
 
 const popupSelectors = {
-  popup,
-  popupContainer,
+  popup: document.querySelector('.popup'),
+  popupContainer: document.querySelector('.popup__content'),
   body,
-  overlay,
-  closePopupButton,
+  overlay: body.querySelector('.overlay'),
+  closePopupButton: document.querySelector('#close-popup'),
 };
 
 const errorMessages = {
@@ -27,4 +25,6 @@ export {
   authButton,
   errorMessages,
   popupSelectors,
+  navigation,
+  navigationList,
 };

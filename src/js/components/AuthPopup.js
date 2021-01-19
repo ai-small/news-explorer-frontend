@@ -7,9 +7,9 @@ import Popup from './Popup';
     // поле email должно соответствовать шаблону почты.
 // + Всё остальное как с формой регистрации: механика валидации «на лету» и показ ошибок в интерфейсе.
 // + Если форма заполнена корректно, кнопка «Войти» становится активной.
-// Клик по ней отправляет запрос на роут /signin.
-// Если логин и пароль правильные, сервер возвращает клиенту JWT.
-// При этом токен должен сохраняться в localStorage, а попап входа в систему закрываться.
+// + Клик по ней отправляет запрос на роут /signin.
+// + Если логин и пароль правильные, сервер возвращает клиенту JWT.
+// + - При этом токен должен сохраняться в localStorage, а попап входа в систему закрываться.
 
 export default class AuthPopup extends Popup {
 
@@ -35,23 +35,27 @@ export default class AuthPopup extends Popup {
 </form>
   `;
 
-  constructor(params) {
+  constructor(params, mainApi) {
     super(params); // зовем родительский класс
     this.popupContainer = params.popupContainer;
     this.createFormValidator = params.createFormValidator;
+    this.mainApi = mainApi;
+    this.submitHandler = this.submitHandler.bind(this);
   }
 
   _renderContent = () => {
     super.setContent(AuthPopup._markupAuthPopup);
     this.form = document.forms.signin;
+    console.log(this.form)
     this.submitButton = this.form.querySelector('#submit-button');
     this.regButton = this.form.querySelector('.button_type_text');
-    const errorSpans = {
+    this.errorSpans = {
       emailError: this.form.querySelector('#email-error'),
       passwordError: this.form.querySelector('#password-error'),
       serverError: this.form.querySelector('.form__server-error'),
     };
-    this.dependencies.createFormValidator(this.form, errorSpans, this.submitButton).setEventListeners();
+    this.formValidator = this.dependencies.createFormValidator(this.form, this.errorSpans, this.submitButton);
+    this.formValidator.setEventListeners();
     this.setEventListeners();
   }
 
@@ -67,10 +71,31 @@ export default class AuthPopup extends Popup {
     this.removeListeners();
   }
 
-  submitHandler = (event) => {
+  async submitHandler(event) {
+    console.log(event)
     event.preventDefault();
-    // на время выполнения запроса - заблокировать кнопку и инпуты
-    console.log('submit!')
+    const inputs = Array.from(this.form.elements).filter(element => element.tagName === 'INPUT');
+    const inputValues = inputs.map(input => input.value);
+    this.formValidator._setButtonDisabledState(this.submitButton);
+    this.formValidator._setInputsDisabledState(inputs);
+    try {
+      const authState = await this.mainApi.signin(inputValues);
+      console.log(authState.message)
+      if (authState.message) {
+        this.close(event);
+        // отрисовка страницы для залогненного пользователя
+        // this.header
+        const userData = await this.mainApi.getUser();
+        if (userData) {
+          userData.isLoggedIn = true
+        }
+        this.dependencies.header.render(userData);
+      }
+    } catch (error) {
+      this.errorSpans.serverError.textContent = error.message;
+      this.formValidator._setButtonEnabledState(this.submitButton);
+      this.formValidator._setInputsEnabledState(inputs);
+    }
   }
 
   setEventListeners = () => {

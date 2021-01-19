@@ -1,8 +1,8 @@
-// class BaseComponent {
+class BaseComponent {
+  constructor(theme) {
+    this.theme = theme;
+  }
 
-//   constructor () {
-
-//   }
-
-//   _setHandlers () {}
-// }
+  _setHandlers() {
+  }
+}

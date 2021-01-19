@@ -25,7 +25,6 @@ export default class MainApi {
 
   async signup([email, password, name]) {
     try {
-      console.log(this.url, this.routes.signup)
       const res = await fetch(`${this.url}${this.routes.signup}`, {
         method: 'POST',
         headers: this.headers,
@@ -43,10 +42,44 @@ export default class MainApi {
       console.log(error);
       throw error // обязательно прокинуть ошибку дальше
     }
+  }
+
+  async signin ([email, password]) {
+    try {
+      const res = await fetch(`${this.url}${this.routes.signin}`, {
+        method: 'POST',
+        headers: this.headers,
+        credentials: 'include',
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+      });
+
+      const result = await res.json();
+      return this._checkServerResponse(res, result)
+
+    } catch (error) {
+      console.log(error);
+      throw error
+    }
 
   }
 
-  // async signin () {
+  async getUser() {
+    try {
+      const res = await fetch(`${this.url}${this.routes.getUser}`, {
+        method: 'GET',
+        credentials: 'include',
+        headers: this.headers,
+      });
 
-  // }
+      const result = await res.json();
+      return this._checkServerResponse(res, result)
+
+    } catch (error) {
+      console.log(error);
+      throw error
+    }
+  }
 }
