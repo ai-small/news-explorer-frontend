@@ -1,5 +1,8 @@
-export default class Popup {
+import BaseComponent from './BaseComponent';
+
+export default class Popup extends BaseComponent {
   constructor(params) {
+    super();
     this.closePopupButton = params.closePopupButton;
     this.popup = params.popup;
     this.body = params.body;
@@ -69,7 +72,7 @@ export default class Popup {
     document.removeEventListener('keydown', this._escapeKeyPressed);
   }
 
-  saveDependencies(dependencies) {
-    this.dependencies = dependencies;
-  }
+  // saveDependencies(dependencies) {
+  //   this.dependencies = dependencies;
+  // }
 }

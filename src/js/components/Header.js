@@ -1,4 +1,4 @@
-// import BaseComponent from './BaseComponent';
+import BaseComponent from './BaseComponent';
 
 // Класс, отвечающий за логику работы шапки сайта.
 // конструктор принимает объект опций.
@@ -30,13 +30,23 @@ export default class Header {
       return this.template.children;
   }
 
+  // вынести метод в BaseComp
+  pasteIntoDOM = (markup, parentNode) => {
+    Array.from(this.getTemplate(markup)).forEach(node => parentNode.appendChild(node));
+  }
+
+  setLogoutButton = (name) => {
+    this.logoutButton = document.querySelector('#logout');
+    this.logoutButton.textContent = name;
+
+  }
+
   render(userData) {
     if (userData.isLoggedIn) {
       this.authButton.remove();
-      Array.from(this.getTemplate(Header._markupLogoutButton)).forEach(node => this.navigation.appendChild(node));
-      this.logoutButton = document.querySelector('#logout');
-      this.logoutButton.textContent = userData.name;
-      Array.from(this.getTemplate(Header._markupSavedArticlesLink)).forEach(node => this.navigationList.appendChild(node));
+      this.pasteIntoDOM(Header._markupLogoutButton, this.navigation);
+      this.setLogoutButton(userData.name);
+      this.pasteIntoDOM(Header._markupSavedArticlesLink, this.navigationList);
     }
   }
 

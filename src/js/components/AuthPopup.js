@@ -46,7 +46,6 @@ export default class AuthPopup extends Popup {
   _renderContent = () => {
     super.setContent(AuthPopup._markupAuthPopup);
     this.form = document.forms.signin;
-    console.log(this.form)
     this.submitButton = this.form.querySelector('#submit-button');
     this.regButton = this.form.querySelector('.button_type_text');
     this.errorSpans = {
@@ -72,24 +71,25 @@ export default class AuthPopup extends Popup {
   }
 
   async submitHandler(event) {
-    console.log(event)
     event.preventDefault();
     const inputs = Array.from(this.form.elements).filter(element => element.tagName === 'INPUT');
     const inputValues = inputs.map(input => input.value);
     this.formValidator._setButtonDisabledState(this.submitButton);
     this.formValidator._setInputsDisabledState(inputs);
     try {
-      const authState = await this.mainApi.signin(inputValues);
-      console.log(authState.message)
-      if (authState.message) {
+      const authData = await this.mainApi.signin(inputValues);
+      // console.log(authData);
+      if (authData) {
         this.close(event);
-        // отрисовка страницы для залогненного пользователя
-        // this.header
-        const userData = await this.mainApi.getUser();
-        if (userData) {
-          userData.isLoggedIn = true
-        }
-        this.dependencies.header.render(userData);
+        // отрисовка страницы для залогиненного пользователя
+        // const userData = await this.mainApi.getUser();
+        const userData = {
+          name: authData.name,
+          email: authData.email,
+          isLoggedIn: true,
+        };
+        // localStorage.setItem('username', userData.name);
+        this.dependencies.page.renderMain(userData);
       }
     } catch (error) {
       this.errorSpans.serverError.textContent = error.message;

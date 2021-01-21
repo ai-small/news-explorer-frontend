@@ -1,3 +1,4 @@
+const storage = localStorage;
 const body = document.body;
 const authButton = document.querySelector('#openAuthPopup');
 const navigation = document.querySelector('#navigation');
@@ -21,10 +22,17 @@ const errorMessages = {
   userExist: 'Такой пользователь уже есть',
 };
 
+// const mainPageOptions = {
+//   page: 'main',
+
+// }
+
 export {
+  storage,
   authButton,
   errorMessages,
   popupSelectors,
   navigation,
   navigationList,
+  // mainPageOptions,
 };
