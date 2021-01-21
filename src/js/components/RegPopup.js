@@ -37,7 +37,7 @@ export default class RegPopup extends Popup {
   }
 
   _renderContent = () => {
-    super.setContent(RegPopup._markupRegPopup);
+    this.pasteIntoDOM(RegPopup._markupRegPopup, this.popupContainer);
     this.form = document.forms.signup;
     this.submitButton = this.form.querySelector('#submit-button');
     this.authButton = this.form.querySelector('.button_type_text');
@@ -49,7 +49,6 @@ export default class RegPopup extends Popup {
     };
     this.formValidator = this.dependencies.createFormValidator(this.form, this.errorSpans, this.submitButton);
     this.formValidator.setEventListeners();
-    // this.dependencies.createFormValidator(this.form, this.errorSpans, this.submitButton).setEventListeners();
     this.setEventListeners();
   }
 

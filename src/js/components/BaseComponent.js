@@ -5,9 +5,19 @@
 export default class BaseComponent {
   constructor(handlers) {
     this.handlers = handlers;
+    this.template = document.createElement('div');
   }
 
   _setHandlers() {
+  }
+
+  getTemplate = (markup) => {
+    this.template.insertAdjacentHTML('afterbegin', markup);
+    return this.template.children;
+  }
+
+  pasteIntoDOM = (markup, parentNode) => {
+    Array.from(this.getTemplate(markup)).forEach(node => parentNode.appendChild(node));
   }
 
   saveDependencies(dependencies) {

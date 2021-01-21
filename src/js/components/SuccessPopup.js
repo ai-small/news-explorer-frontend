@@ -15,7 +15,7 @@ export default class SuccessPopup extends Popup {
   }
 
   _renderContent = () => {
-    super.setContent(SuccessPopup._markupSuccessPopup);
+    this.pasteIntoDOM(SuccessPopup._markupSuccessPopup, this.popupContainer);
     this.authButton = document.querySelector('#open-signin');
     this.setEventListeners();
   }

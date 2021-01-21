@@ -1,16 +1,5 @@
 import Popup from './Popup';
 
-// + При нажатии на «Вход» в шапке сайта, должен появляться попап с формой входа в систему.
-// + При клике на крестик в правом верхнему углу попап с формой должен закрываться.
-// + Форма входа тоже должна валидироваться на фронтенде:
-    // оба поля обязательны,
-    // поле email должно соответствовать шаблону почты.
-// + Всё остальное как с формой регистрации: механика валидации «на лету» и показ ошибок в интерфейсе.
-// + Если форма заполнена корректно, кнопка «Войти» становится активной.
-// + Клик по ней отправляет запрос на роут /signin.
-// + Если логин и пароль правильные, сервер возвращает клиенту JWT.
-// + - При этом токен должен сохраняться в localStorage, а попап входа в систему закрываться.
-
 export default class AuthPopup extends Popup {
 
   // разметка всплывающего окна
@@ -44,7 +33,7 @@ export default class AuthPopup extends Popup {
   }
 
   _renderContent = () => {
-    super.setContent(AuthPopup._markupAuthPopup);
+    this.pasteIntoDOM(AuthPopup._markupAuthPopup, this.popupContainer);
     this.form = document.forms.signin;
     this.submitButton = this.form.querySelector('#submit-button');
     this.regButton = this.form.querySelector('.button_type_text');
@@ -78,17 +67,14 @@ export default class AuthPopup extends Popup {
     this.formValidator._setInputsDisabledState(inputs);
     try {
       const authData = await this.mainApi.signin(inputValues);
-      // console.log(authData);
       if (authData) {
         this.close(event);
         // отрисовка страницы для залогиненного пользователя
-        // const userData = await this.mainApi.getUser();
         const userData = {
           name: authData.name,
           email: authData.email,
           isLoggedIn: true,
         };
-        // localStorage.setItem('username', userData.name);
         this.dependencies.page.renderMain(userData);
       }
     } catch (error) {

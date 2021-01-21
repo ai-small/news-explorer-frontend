@@ -9,7 +9,7 @@ import BaseComponent from './BaseComponent';
 // isLoggedIn — залогинен ли пользователь;
 // userName — имя, которое отображается в шапке залогиненного пользователя.
 
-export default class Header {
+export default class Header extends BaseComponent {
   static _markupLogoutButton = `
     <button class="button button_type_button navigation__button navigation__button_logout-white link" id="logout"></button>
   `;
@@ -19,35 +19,23 @@ export default class Header {
   `;
 
   constructor(params) {
-    this.template = document.createElement('div');
+    super();
     this.navigation = params.navigation;
     this.navigationList = params.navigationList;
     this.authButton = params.authButton;
   }
 
-  getTemplate = (markup) => {
-      this.template.insertAdjacentHTML('afterbegin', markup);
-      return this.template.children;
-  }
-
-  // вынести метод в BaseComp
-  pasteIntoDOM = (markup, parentNode) => {
-    Array.from(this.getTemplate(markup)).forEach(node => parentNode.appendChild(node));
-  }
-
-  setLogoutButton = (name) => {
+  _setLogoutButton = (name) => {
     this.logoutButton = document.querySelector('#logout');
     this.logoutButton.textContent = name;
-
   }
 
   render(userData) {
     if (userData.isLoggedIn) {
       this.authButton.remove();
       this.pasteIntoDOM(Header._markupLogoutButton, this.navigation);
-      this.setLogoutButton(userData.name);
+      this._setLogoutButton(userData.name);
       this.pasteIntoDOM(Header._markupSavedArticlesLink, this.navigationList);
     }
   }
-
 }
