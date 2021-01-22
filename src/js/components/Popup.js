@@ -13,17 +13,6 @@ export default class Popup extends BaseComponent {
     this._clickOutToClosePopup = this._clickOutToClosePopup.bind(this);
   }
 
-  // готовит шаблон всплывающего окна для отрисовки в контейнере
-  getTemplate(markup) {
-    this.template.insertAdjacentHTML('afterbegin', markup);
-    return this.template.children;
-  }
-
-  // вставляет элементы шаблона в контейнер
-  setContent(markup) {
-    Array.from(this.getTemplate(markup)).forEach((node) => this.popupContainer.appendChild(node));
-  }
-
   // очищает содержимое контейнера
   clearContent() {
     const title = this.popup.querySelector('.popup__title');
@@ -60,19 +49,9 @@ export default class Popup extends BaseComponent {
     }
   }
 
-  setEventListeners() {
-    this.closePopupButton.addEventListener('click', this.close);
-    this.overlay.addEventListener('click', this._clickOutToClosePopup);
-    document.addEventListener('keydown', this._escapeKeyPressed);
-  }
-
-  removeListeners() {
-    this.closePopupButton.removeEventListener('click', this.close);
-    this.overlay.removeEventListener('click', this._clickOutToClosePopup);
-    document.removeEventListener('keydown', this._escapeKeyPressed);
-  }
-
-  // saveDependencies(dependencies) {
-  //   this.dependencies = dependencies;
+  // removeListeners() {
+  //   this.closePopupButton.removeEventListener('click', this.close);
+  //   this.overlay.removeEventListener('click', this._clickOutToClosePopup);
+  //   document.removeEventListener('keydown', this._escapeKeyPressed);
   // }
 }

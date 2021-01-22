@@ -17,28 +17,21 @@ export default class SuccessPopup extends Popup {
   _renderContent = () => {
     this.pasteIntoDOM(SuccessPopup._markupSuccessPopup, this.popupContainer);
     this.authButton = document.querySelector('#open-signin');
-    this.setEventListeners();
+    this.setHandlers([
+      { element: this.authButton, event: 'click', handler: this.openAuthPopup },
+    ]);
+  }
+
+  openAuthPopup = () => {
+    this.removeHandlers([
+      { element: this.authButton, event: 'click', handler: this.openAuthPopup },
+    ]);
+    this.dependencies.authPopup.open();
   }
 
   open = () => {
     super.open();
     super.clearContent();
-    super.removeListeners();
     this._renderContent();
-  }
-
-  close = (event) => {
-    super.close(event);
-    super.removeListeners();
-    this.removeListeners();
-  }
-
-  setEventListeners = () => {
-    super.setEventListeners();
-    this.authButton.addEventListener('click', this.dependencies.authPopup.open);
-  }
-
-  removeListeners = () => {
-    this.authButton.removeEventListener('click', this.dependencies.authPopup.open);
   }
 }

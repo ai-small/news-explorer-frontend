@@ -27,6 +27,8 @@ export default class AuthPopup extends Popup {
   constructor(params, mainApi) {
     super(params); // зовем родительский класс
     this.popupContainer = params.popupContainer;
+    this.closePopupButton = params.closePopupButton;
+    this.overlay = params.overlay;
     this.createFormValidator = params.createFormValidator;
     this.mainApi = mainApi;
     this.submitHandler = this.submitHandler.bind(this);
@@ -43,8 +45,23 @@ export default class AuthPopup extends Popup {
       serverError: this.form.querySelector('.form__server-error'),
     };
     this.formValidator = this.dependencies.createFormValidator(this.form, this.errorSpans, this.submitButton);
-    this.formValidator.setEventListeners();
-    this.setEventListeners();
+    this.setHandlers([
+      { element: this.closePopupButton, event: 'click', handler: this.close },
+      { element: this.overlay, event: 'click', handler: this._clickOutToClosePopup },
+      { element: document, event: 'keydown', handler: this._escapeKeyPressed },
+      { element: this.form, event: 'input', handler: this.formValidator.inputHandler },
+      { element: this.form, event: 'submit', handler: this.submitHandler },
+      { element: this.regButton, event: 'click', handler: this.openRegPopup },
+    ]);
+  }
+
+  openRegPopup = () => {
+    this.removeHandlers([
+      { element: this.form, event: 'input', handler: this.formValidator.inputHandler },
+      { element: this.form, event: 'submit', handler: this.submitHandler },
+      { element: this.regButton, event: 'click', handler: this.dependencies.regPopup.open },
+    ]);
+    this.dependencies.regPopup.open();
   }
 
   open = () => {
@@ -55,8 +72,15 @@ export default class AuthPopup extends Popup {
 
   close = (event) => {
     super.close(event);
-    super.removeListeners();
-    this.removeListeners();
+    console.log('left from ', this);
+    this.removeHandlers([
+      { element: this.closePopupButton, event: 'click', handler: this.close },
+      { element: this.overlay, event: 'click', handler: this._clickOutToClosePopup },
+      { element: document, event: 'keydown', handler: this._escapeKeyPressed },
+      { element: this.form, event: 'input', handler: this.formValidator.inputHandler },
+      { element: this.form, event: 'submit', handler: this.submitHandler },
+      { element: this.regButton, event: 'click', handler: this.openRegPopup },
+    ]);
   }
 
   async submitHandler(event) {
@@ -69,7 +93,6 @@ export default class AuthPopup extends Popup {
       const authData = await this.mainApi.signin(inputValues);
       if (authData) {
         this.close(event);
-        // отрисовка страницы для залогиненного пользователя
         const userData = {
           name: authData.name,
           email: authData.email,
@@ -82,16 +105,5 @@ export default class AuthPopup extends Popup {
       this.formValidator._setButtonEnabledState(this.submitButton);
       this.formValidator._setInputsEnabledState(inputs);
     }
-  }
-
-  setEventListeners = () => {
-    super.setEventListeners();
-    this.form.addEventListener('submit', this.submitHandler);
-    this.regButton.addEventListener('click', this.dependencies.regPopup.open);
-  }
-
-  removeListeners = () => {
-    this.form.removeEventListener('submit', this.submitHandler);
-    this.regButton.removeEventListener('click', this.dependencies.regPopup.open);
   }
 }

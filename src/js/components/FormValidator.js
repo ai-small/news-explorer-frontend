@@ -77,9 +77,6 @@ export default class FormValidator {
   inputHandler = (event) => {
     const input = event.target;
     this._checkInputValidity(input);
-    // console.log('input valid:', this._checkInputValidity(input))
-    // console.log(this.form.checkValidity);
-    // console.log('form valid:', this.form.checkValidity())
     if (this.form.checkValidity()) {
       this._setButtonEnabledState(this.button)
     } else {
@@ -87,9 +84,8 @@ export default class FormValidator {
     }
   }
 
-
-  setEventListeners = () => {
-    this.form.addEventListener('input', this.inputHandler);
-  }
+  // setEventListeners = () => {
+  //   this.form.addEventListener('input', this.inputHandler);
+  // }
 
 }

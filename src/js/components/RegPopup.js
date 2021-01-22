@@ -31,6 +31,8 @@ export default class RegPopup extends Popup {
   constructor(params, mainApi) {
     super(params);
     this.popupContainer = params.popupContainer;
+    this.closePopupButton = params.closePopupButton;
+    this.overlay = params.overlay;
     this.createFormValidator = params.createFormValidator;
     this.mainApi = mainApi;
     this.submitHandler = this.submitHandler.bind(this);
@@ -48,21 +50,26 @@ export default class RegPopup extends Popup {
       serverError: this.form.querySelector('.form__server-error'),
     };
     this.formValidator = this.dependencies.createFormValidator(this.form, this.errorSpans, this.submitButton);
-    this.formValidator.setEventListeners();
-    this.setEventListeners();
+    this.setHandlers([
+      { element: this.form, event: 'input', handler: this.formValidator.inputHandler },
+      { element: this.form, event: 'submit', handler: this.submitHandler },
+      { element: this.authButton, event: 'click', handler: this.dependencies.authPopup.open },
+    ]);
+  }
+
+  openAuthPopup = () => {
+    this.removeHandlers([
+      { element: this.form, event: 'input', handler: this.formValidator.inputHandler },
+      { element: this.form, event: 'submit', handler: this.submitHandler },
+      { element: this.authButton, event: 'click', handler: this.dependencies.authPopup.open },
+    ]);
+    this.dependencies.authPopup.open();
   }
 
   open = () => {
     super.open();
     super.clearContent();
-    super.removeListeners();
     this._renderContent();
-  }
-
-  close = (event) => {
-    super.close(event);
-    super.removeListeners();
-    this.removeListeners();
   }
 
   async submitHandler(event) {
@@ -82,12 +89,4 @@ export default class RegPopup extends Popup {
       this.formValidator._setInputsEnabledState(inputs);
     }
   }
-
-  setEventListeners = () => {
-    super.setEventListeners();
-    this.form.addEventListener('submit', this.submitHandler);
-    this.authButton.addEventListener('click', this.dependencies.authPopup.open);
-  }
-
-  // снятие слушателей!
 }

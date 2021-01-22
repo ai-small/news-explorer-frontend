@@ -1,14 +1,5 @@
 import BaseComponent from './BaseComponent';
 
-// Класс, отвечающий за логику работы шапки сайта.
-// конструктор принимает объект опций.
-// В опциях передайте цвет шапки, так как на разных страницах он может быть разный.
-// Методы у класса Header такие:
-// render при вызове перерисовывает шапку в зависимости от переданного аргумента —
-// объекта props. У этого объекта есть два обязательных свойства:
-// isLoggedIn — залогинен ли пользователь;
-// userName — имя, которое отображается в шапке залогиненного пользователя.
-
 export default class Header extends BaseComponent {
   static _markupLogoutButton = `
     <button class="button button_type_button navigation__button navigation__button_logout-white link" id="logout"></button>
@@ -23,11 +14,24 @@ export default class Header extends BaseComponent {
     this.navigation = params.navigation;
     this.navigationList = params.navigationList;
     this.authButton = params.authButton;
+    this.burgerButton = params.burgerButton;
   }
 
   _setLogoutButton = (name) => {
     this.logoutButton = document.querySelector('#logout');
     this.logoutButton.textContent = name;
+  }
+
+  openMobileMenu = () => {
+    console.log('open mobile menu');
+  }
+
+  logout = () => {
+    console.log('logout');
+    // запрос за cookie clear (на бэке доп роут), если ок -
+    // снять листнер с кнопки
+    // удалить данные из локал сторадж
+    // заменить кнопку логаута на кнопку авторизации
   }
 
   render(userData) {
@@ -37,5 +41,7 @@ export default class Header extends BaseComponent {
       this._setLogoutButton(userData.name);
       this.pasteIntoDOM(Header._markupSavedArticlesLink, this.navigationList);
     }
+
+    this.setHandlers([{ element: this.logoutButton, event: 'click', handler: this.logout }])
   }
 }

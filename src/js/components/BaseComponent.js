@@ -3,12 +3,21 @@
 // Этот метод добавляет обработчики конкретным элементам.
 
 export default class BaseComponent {
-  constructor(handlers) {
-    this.handlers = handlers;
+  constructor() {
+    // this.handlers = handlers;
     this.template = document.createElement('div');
   }
 
-  _setHandlers() {
+  setHandlers(options) {
+    options.forEach(option => {
+      option.element.addEventListener(option.event, option.handler);
+    })
+  }
+
+  removeHandlers(options) {
+    options.forEach(option => {
+      option.element.removeEventListener(option.event, option.handler);
+    })
   }
 
   getTemplate = (markup) => {

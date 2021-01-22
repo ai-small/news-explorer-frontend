@@ -3,6 +3,7 @@ const body = document.body;
 const authButton = document.querySelector('#openAuthPopup');
 const navigation = document.querySelector('#navigation');
 const navigationList = document.querySelector('.navigation__list');
+const burgerButton = document.querySelector('.button__icon_burger');
 
 const popupSelectors = {
   popup: document.querySelector('.popup'),
@@ -22,6 +23,13 @@ const errorMessages = {
   userExist: 'Такой пользователь уже есть',
 };
 
+const headerElements = {
+  navigation,
+  navigationList,
+  authButton,
+  burgerButton,
+};
+
 // const mainPageOptions = {
 //   page: 'main',
 
@@ -32,7 +40,6 @@ export {
   authButton,
   errorMessages,
   popupSelectors,
-  navigation,
-  navigationList,
+  headerElements,
   // mainPageOptions,
 };

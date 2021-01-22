@@ -5,6 +5,7 @@ export default class Page extends BaseComponent {
   constructor(params) {
     super();
     this.mainApi = params.mainApi;
+    this.burgerButton = params.headerElements.burgerButton;
   }
 
   async renderMain(authUserData) {
@@ -32,13 +33,14 @@ export default class Page extends BaseComponent {
         this.dependencies.header.render(authUserData);
       }
 
-      // узнать, залогинен ли пользователь
-        // если нет рисуем дефолтный хедер (defaultHeaderState), вешаем слушателей
-        // если да рисуем залогиненный хедер (userLoggedHeaderState),
-      // что-то с поиском делаем: слушатель на кнопку поиска
-      //
+      // вешаем слушателей на мобильное меню, кнопку авторизации
+      this.setHandlers([
+        { element: this.dependencies.header.authButton, event: 'click', handler: this.dependencies.authPopup.open },
+        { element: this.burgerButton, event: 'click', handler: this.dependencies.header.openMobileMenu },
+        // что-то с поиском делаем: слушатель на кнопку поиска
+      ]);
     } catch (error) {
-
+      console.log(error);
     }
   }
 }
