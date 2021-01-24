@@ -4,6 +4,8 @@ const authButton = document.querySelector('#openAuthPopup');
 const navigation = document.querySelector('#navigation');
 const navigationList = document.querySelector('.navigation__list');
 const burgerButton = document.querySelector('.button__icon_burger');
+const headerPanel = document.querySelector('.header__panel');
+const closeMobileMenuButton = document.querySelector('.button__icon_close');
 
 const popupSelectors = {
   popup: document.querySelector('.popup'),
@@ -28,6 +30,8 @@ const headerElements = {
   navigationList,
   authButton,
   burgerButton,
+  headerPanel,
+  closeMobileMenuButton,
 };
 
 // const mainPageOptions = {

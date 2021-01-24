@@ -15,6 +15,9 @@ export default class Header extends BaseComponent {
     this.navigationList = params.navigationList;
     this.authButton = params.authButton;
     this.burgerButton = params.burgerButton;
+    this.headerPanel = params.headerPanel;
+    this.closeMobileMenuButton = params.closeMobileMenuButton;
+
   }
 
   _setLogoutButton = (name) => {
@@ -22,14 +25,34 @@ export default class Header extends BaseComponent {
     this.logoutButton.textContent = name;
   }
 
+  toggleMobileMenu = () => {
+    this.headerPanel.classList.toggle('header__panel_theme_dark');
+    this.navigation.classList.toggle('hidden');
+    this.navigation.classList.toggle('navigation_flex');
+    this.burgerButton.classList.toggle('hidden');
+    this.closeMobileMenuButton.classList.toggle('hidden');
+  }
+
   openMobileMenu = () => {
-    console.log('open mobile menu');
+    this.toggleMobileMenu();
+    this.setHandlers([
+      { element: this.closeMobileMenuButton, event: 'click', handler: this.closeMobileMenu },
+    ]);
+    // события для сенсора?
+  }
+
+  closeMobileMenu = () => {
+    this.toggleMobileMenu();
+    this.removeHandlers([
+      { element: this.closeMobileMenuButton, event: 'click', handler: this.closeMobileMenu },
+    ]);
   }
 
   logout = () => {
     console.log('logout');
     // запрос за cookie clear (на бэке доп роут), если ок -
     // снять листнер с кнопки
+    // this.removeHandlers([{ element: this.logoutButton, event: 'click', handler: this.logout }]);
     // удалить данные из локал сторадж
     // заменить кнопку логаута на кнопку авторизации
   }
@@ -42,6 +65,6 @@ export default class Header extends BaseComponent {
       this.pasteIntoDOM(Header._markupSavedArticlesLink, this.navigationList);
     }
 
-    this.setHandlers([{ element: this.logoutButton, event: 'click', handler: this.logout }])
+    this.setHandlers([{ element: this.logoutButton, event: 'click', handler: this.logout }]);
   }
 }
