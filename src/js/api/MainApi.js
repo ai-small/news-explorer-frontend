@@ -82,4 +82,22 @@ export default class MainApi {
       throw error
     }
   }
+
+  async logout() {
+    try {
+      const res = await fetch(`${this.url}${this.routes.logout}`, {
+        method: 'POST',
+        headers: this.headers,
+        credentials: 'include',
+      });
+
+      const result = await res.json();
+      return this._checkServerResponse(res, result)
+
+    } catch (error) {
+      console.log(error);
+      throw error
+    }
+
+  }
 }

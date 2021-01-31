@@ -17,7 +17,7 @@ export default class Header extends BaseComponent {
     this.burgerButton = params.burgerButton;
     this.headerPanel = params.headerPanel;
     this.closeMobileMenuButton = params.closeMobileMenuButton;
-
+    this.logout = this.logout.bind(this);
   }
 
   _setLogoutButton = (name) => {
@@ -27,7 +27,7 @@ export default class Header extends BaseComponent {
 
   toggleMobileMenu = () => {
     this.headerPanel.classList.toggle('header__panel_theme_dark');
-    this.navigation.classList.toggle('hidden');
+    this.navigation.classList.toggle('hide');
     this.navigation.classList.toggle('navigation_flex');
     this.burgerButton.classList.toggle('hidden');
     this.closeMobileMenuButton.classList.toggle('hidden');
@@ -48,13 +48,15 @@ export default class Header extends BaseComponent {
     ]);
   }
 
-  logout = () => {
-    console.log('logout');
-    // запрос за cookie clear (на бэке доп роут), если ок -
-    // снять листнер с кнопки
-    // this.removeHandlers([{ element: this.logoutButton, event: 'click', handler: this.logout }]);
-    // удалить данные из локал сторадж
-    // заменить кнопку логаута на кнопку авторизации
+  async logout() {
+    try {
+      const logout = await this.dependencies.mainApi.logout();
+      this.removeHandlers([{ element: this.logoutButton, event: 'click', handler: this.logout }]);
+      localStorage.removeItem('username');
+      window.location.reload();
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   render(userData) {

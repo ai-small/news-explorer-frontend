@@ -1,7 +1,7 @@
 import { errorMessages } from '../constants/constants';
 
 export default class FormValidator {
-  constructor (form, errorSpans, button) {
+  constructor(form, errorSpans, button) {
     this.form = form;
     this.button = button;
     this.errorSpans = errorSpans;
@@ -44,11 +44,20 @@ export default class FormValidator {
 
   _checkInputValidity = (input) => {
     this._resetError(input);
-    this._resetServerError();
+    if (this.errorSpans.serverError) {
+      this._resetServerError();
+    }
     input.setCustomValidity("");
 
-    if (input.validity.valueMissing) {
+    if (input.validity.valueMissing && this.errorSpans.serverError) {
       input.setCustomValidity(this.errorMessages.valueMissing);
+      this._showErrorMessage(input);
+      return false
+    }
+
+    // поправить костыль! лучше привязать к классу?
+    if (input.validity.valueMissing && !this.errorSpans.serverError) {
+      input.setCustomValidity(this.errorMessages.emptyKeyword);
       this._showErrorMessage(input);
       return false
     }
@@ -80,12 +89,7 @@ export default class FormValidator {
     if (this.form.checkValidity()) {
       this._setButtonEnabledState(this.button)
     } else {
-        this._setButtonDisabledState(this.button)
+      this._setButtonDisabledState(this.button)
     }
   }
-
-  // setEventListeners = () => {
-  //   this.form.addEventListener('input', this.inputHandler);
-  // }
-
 }

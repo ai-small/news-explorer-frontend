@@ -19,7 +19,7 @@
           <button class="button__icon button__icon_burger"></button>
           <button class="button__icon button__icon_close hidden"></button>
         </div>
-        <nav class="navigation hidden" id="navigation">
+        <nav class="navigation hide" id="navigation">
           <ul class="navigation__list">
             <li><a href="./" class="link navigation__item navigation__item_active">Главная</a></li>
             <!-- <li><a href="./saved.html" class="link navigation__item hidden">Сохранённые статьи</a></li> -->
@@ -30,10 +30,11 @@
       <section class="search-container page__section page__container">
         <h1 class="title search-container__title">Что творится в мире?</h1>
         <p class="search-container__subtitle">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</p>
-        <form class="search-container__form" name="search-form" novalidate>
-          <input type="text" name="about" class="search-container__input" minlength="2" required placeholder="Политика"><span class="error"></span>
+        <form class="search-container__form" name="search" novalidate>
+          <input type="text" name="about" class="search-container__input" minlength="2" required placeholder="Политика">
           <button type="submit" class="button button_type_button button_color_blue search-container__button">Искать</button>
         </form>
+        <span class="form__error search-container__error" id="search-error"></span>
       </section>
     </header>
     <main>
@@ -50,34 +51,10 @@
           <p class="title search-results__title search-results__title_not-found">Ничего не найдено</p>
           <p class="search-results__text">К сожалению по вашему запросу ничего не найдено.</p>
         </div>
-        <h2 class="title search-results__title">Результаты поиска</h2>
-        <div class="articles">
-          <div class="article">
-            <button class="article__bookmark-icon" data-tooltip="Войдите, чтобы сохранять статьи"></button>
-            <img src="<%=require('./images/image_08.jpg')%>" alt="image description" class="article__image">
-            <time datetime="2019-08-02" class="article__date">2 августа, 2019</time>
-            <h3 class="title article__title">Национальное достояние – парки</h3>
-            <p class="article__intro">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
-            <a href="https://lenta.ru/" class="article__source link" target="_blank">Лента.ру</a>
-          </div>
-          <div class="article">
-            <button class="article__bookmark-icon" data-tooltip="Войдите, чтобы сохранять статьи"></button>
-            <img src="<%=require('./images/image_06.jpg')%>" alt="image description" class="article__image">
-            <time datetime="2019-08-02" class="article__date">2 августа, 2019</time>
-            <h3 class="title article__title">Лесные огоньки: история одной фотографии</h3>
-            <p class="article__intro">Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного из местных чудес природы.</p>
-            <a href="https://meduza.io/" class="article__source link" target="_blank">Медуза</a>
-          </div>
-          <div class="article">
-            <button class="article__bookmark-icon" data-tooltip="Войдите, чтобы сохранять статьи"></button>
-            <img src="<%=require('./images/image_07.jpg')%>" alt="image description" class="article__image">
-            <time datetime="2019-08-02" class="article__date">2 августа, 2019</time>
-            <h3 class="title article__title">«Первозданная тайга»: новый фотопроект Игоря Шпиленка</h3>
-            <p class="article__intro">Знаменитый фотограф снимает первозданные леса России, чтобы рассказать о необходимости их сохранения. В этот раз он отправился в Двинско-Пинежскую тайгу, где</p>
-            <a href="https://ria.ru/" class="article__source link" target="_blank">Риа</a>
-          </div>
+        <h2 class="title search-results__title hidden" id="search-res-title">Результаты поиска</h2>
+        <div class="articles hidden">
         </div>
-        <button class="button button_type_button search-results__button link">Показать еще</button>
+        <button class="button button_type_button search-results__button link hidden">Показать еще</button>
       </section>
       <section class="page__section page__container author">
         <picture class="author__avatar">

@@ -3,5 +3,5 @@
   /* заменить на flex для отображения */
   flex-direction: column;
   align-items: center;
-
+  margin-top: 80px;
 }

@@ -9,6 +9,7 @@ const MAIN_API_CONFIG = {
     signin: '/signin',
     getUser: '/users/me',
     articles: '/articles',
+    logout: '/logout',
   },
 };
 

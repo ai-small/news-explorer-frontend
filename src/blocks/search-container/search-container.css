@@ -3,11 +3,11 @@
 @import url(./__form/search-container__form.css);
 @import url(./__input/search-container__input.css);
 @import url(./__button/search-container__button.css);
+@import url(./__error/search-container__error.css);
 
 .search-container {
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
   justify-content: center;
   margin-bottom: 2rem;
 }

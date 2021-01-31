@@ -2,11 +2,27 @@
   border-radius: 16px 16px 0 0;
   width: 100%;
   margin-bottom: 16px;
+  object-fit: cover;
+  height: 272px;
 }
 
 @media screen and (min-width: 1280px)
 {
   .article__image {
     margin-bottom: 21px;
+  }
+}
+
+@media screen and (max-width: 768px)
+{
+  .article__image {
+    height: 150px;
+  }
+}
+
+@media screen and (max-width: 500px)
+{
+  .article__image {
+    height: 156px;
   }
 }
