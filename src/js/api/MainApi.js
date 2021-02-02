@@ -1,13 +1,4 @@
-// Отвечает за взаимодействие с написанным вами Node.js API.
-// Конструктор этого класса принимает опции, необходимые для инициализации работы с API.
-// Вот список обязательных методов:
-// signup регистрирует нового пользователя;
-// signin аутентифицирует пользователя на основе почты и пароля;
-// getUserData возвращает информацию о пользователе;
-// getArticles забирает все статьи;
-// createArticle создаёт статью;
-// removeArticle удаляет статью.
-require('babel-polyfill');
+require('babel-polyfill'); //из-за async
 
 export default class MainApi {
   constructor(config) {
@@ -35,7 +26,7 @@ export default class MainApi {
         }),
       });
 
-      const result = await res.json(); // читаем ответ сервера в json-формате
+      const result = await res.json();
       return this._checkServerResponse(res, result)
 
     } catch (error) {
@@ -44,7 +35,7 @@ export default class MainApi {
     }
   }
 
-  async signin ([email, password]) {
+  async signin([email, password]) {
     try {
       const res = await fetch(`${this.url}${this.routes.signin}`, {
         method: 'POST',
@@ -98,6 +89,66 @@ export default class MainApi {
       console.log(error);
       throw error
     }
+  }
 
+  async saveArticle({ keyword, title, text, date, datetime, source, link, image }) {
+    try {
+      const res = await fetch(`${this.url}${this.routes.articles}`, {
+        method: 'POST',
+        headers: this.headers,
+        credentials: 'include',
+        body: JSON.stringify({
+          keyword,
+          title,
+          text,
+          date,
+          datetime,
+          source,
+          link,
+          image,
+        }),
+      });
+
+      const result = await res.json();
+      return this._checkServerResponse(res, result)
+
+    } catch (error) {
+      console.log(error);
+      throw error
+    }
+  }
+
+  async deleteArticle(id) {
+    try {
+      const res = await fetch(`${this.url}${this.routes.articles}/${id}`, {
+        method: 'DELETE',
+        headers: this.headers,
+        credentials: 'include',
+      });
+
+      const result = await res.json();
+      return this._checkServerResponse(res, result)
+
+    } catch (error) {
+      console.log(error);
+      throw error
+    }
+  }
+
+  async getArticles() {
+    try {
+      const res = await fetch(`${this.url}${this.routes.articles}`, {
+        method: 'GET',
+        credentials: 'include',
+        headers: this.headers,
+      });
+
+      const result = await res.json();
+      return this._checkServerResponse(res, result)
+
+    } catch (error) {
+      console.log(error);
+      throw error
+    }
   }
 }

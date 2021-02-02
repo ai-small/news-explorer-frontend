@@ -1,6 +1,4 @@
-// NewsApi. Отвечает за взаимодействие с NewsAPI.
-// У класса есть конструктор, принимающий опции, и единственный обязательный метод getNews.
-// getNews возвращает список новостей на основе запроса.
+import getDatesForNewsApi from '../utils/getDatesForNewsApi';
 
 export default class NewsApi {
   constructor(options) {
@@ -8,6 +6,8 @@ export default class NewsApi {
     this.endpoint = options.endpoint;
     this.apiKey = options.apiKey;
     this.pageSize = options.pageSize;
+    this.sortBy = options.sortBy;
+    this.language = options.language;
   }
 
   _checkServerResponse = (res, result) => {
@@ -19,15 +19,18 @@ export default class NewsApi {
 
   async getNews(keyword) {
     try {
+      const { from, to } = getDatesForNewsApi();
       const res = await fetch(`${this.url}${this.endpoint}?` +
         `q=${keyword}&` +
-        `from=2021-01-23&` + //getDate
-        `to=2021-01-29&` + //getDate
+        `from=${from}&` +
+        `to=${to}&` +
+        `sortBy=${this.sortBy}&` +
+        `language=${this.language}&` +
         `pageSize=${this.pageSize}&` +
         `apiKey=${this.apiKey}`
       );
 
-      const result = await res.json(); // читаем ответ сервера в json-формате
+      const result = await res.json();
       return this._checkServerResponse(res, result)
 
     } catch (error) {

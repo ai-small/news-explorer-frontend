@@ -1,10 +1,5 @@
-// У класса BaseComponent должен быть метод constructor.
-// Он принимает на вход массив обработчиков событий и вызывает приватный метод _setHandlers.
-// Этот метод добавляет обработчики конкретным элементам.
-
 export default class BaseComponent {
   constructor() {
-    // this.handlers = handlers;
     this.template = document.createElement('div');
   }
 

@@ -1,4 +1,5 @@
 import BaseComponent from './BaseComponent';
+import { LOCATION_URL } from '../constants/constants';
 
 export default class Header extends BaseComponent {
   static _markupLogoutButton = `
@@ -13,10 +14,14 @@ export default class Header extends BaseComponent {
     super();
     this.navigation = params.navigation;
     this.navigationList = params.navigationList;
+    this.navigationItems = params.navigationItems;
+    this.logo = params.logo;
     this.authButton = params.authButton;
     this.burgerButton = params.burgerButton;
+    this.header = params.header;
     this.headerPanel = params.headerPanel;
     this.closeMobileMenuButton = params.closeMobileMenuButton;
+    this.logoutWhite = params.logoutWhite;
     this.logout = this.logout.bind(this);
   }
 
@@ -26,6 +31,11 @@ export default class Header extends BaseComponent {
   }
 
   toggleMobileMenu = () => {
+    if (this.header.classList.contains('header_theme_white')) {
+      this.logo.classList.toggle('logo_theme_white');
+      this.navigationItems.forEach((item) => item.classList.toggle('navigation__item_theme_white'));
+    }
+
     this.headerPanel.classList.toggle('header__panel_theme_dark');
     this.navigation.classList.toggle('hide');
     this.navigation.classList.toggle('navigation_flex');
@@ -48,12 +58,12 @@ export default class Header extends BaseComponent {
     ]);
   }
 
-  async logout() {
+  async logout(event) {
     try {
       const logout = await this.dependencies.mainApi.logout();
-      this.removeHandlers([{ element: this.logoutButton, event: 'click', handler: this.logout }]);
+      this.removeHandlers([{ element: event.target, event: 'click', handler: this.logout }]);
       localStorage.removeItem('username');
-      window.location.reload();
+      window.location.replace(LOCATION_URL);
     } catch (error) {
       console.log(error)
     }
@@ -68,5 +78,12 @@ export default class Header extends BaseComponent {
     }
 
     this.setHandlers([{ element: this.logoutButton, event: 'click', handler: this.logout }]);
+  }
+
+  renderWhiteThemeHeader(name) {
+    this.logoutWhite.textContent = name;
+    this.setHandlers([
+      { element: this.logoutWhite, event: 'click', handler: this.logout }
+    ]);
   }
 }

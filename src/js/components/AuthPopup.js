@@ -72,7 +72,6 @@ export default class AuthPopup extends Popup {
 
   close = (event) => {
     super.close(event);
-    console.log('left from ', this);
     this.removeHandlers([
       { element: this.closePopupButton, event: 'click', handler: this.close },
       { element: this.overlay, event: 'click', handler: this._clickOutToClosePopup },

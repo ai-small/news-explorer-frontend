@@ -1,7 +1,5 @@
 import '../pages/index.css';
 import {
-  storage,
-  // authButton,
   popupSelectors,
   headerElements,
   searchButton,
@@ -45,7 +43,6 @@ const searchNews = new Search({
   articlesContainer,
   searchResultsTitle,
   errorMessages,
-
 });
 const articleList = new NewsCardList({
   articlesContainer,
@@ -54,7 +51,7 @@ const articleList = new NewsCardList({
   cardsInRow,
 });
 
-// Dependency Injections
+// Dependencies
 authPopup.saveDependencies({
   regPopup,
   createFormValidator,
@@ -63,10 +60,20 @@ authPopup.saveDependencies({
 });
 regPopup.saveDependencies({ authPopup, createFormValidator, successPopup });
 successPopup.saveDependencies({ authPopup });
-page.saveDependencies({ header, authPopup, searchNews });
+page.saveDependencies({
+  header,
+  authPopup,
+  searchNews,
+  articleList,
+});
 header.saveDependencies({ authPopup, mainApi, page });
-searchNews.saveDependencies({ createFormValidator, createArticle, articleList, newsApi });
-articleList.saveDependencies({ createArticle, searchNews });
+searchNews.saveDependencies({
+  createFormValidator,
+  createArticle,
+  articleList,
+  newsApi,
+});
+articleList.saveDependencies({ createArticle, searchNews, mainApi });
 
 // ОТРИСОВАТЬ ГЛАВНУЮ СТРАНИЦУ
 page.renderMain();

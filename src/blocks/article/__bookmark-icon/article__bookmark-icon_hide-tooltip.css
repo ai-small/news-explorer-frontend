@@ -1,0 +1,7 @@
+.article__bookmark-icon_hide-tooltip {
+
+}
+
+.article__bookmark-icon_hide-tooltip:hover::after {
+  opacity: 0;
+}

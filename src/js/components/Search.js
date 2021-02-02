@@ -2,19 +2,6 @@ import BaseComponent from './BaseComponent';
 import { firstArrayValue, errorMessages } from '../constants/constants';
 import transformData from '../utils/transformData';
 
-// После сабмита формы поиска производится валидация.
-// Если в поле не введён текст, выводится ошибка «Нужно ввести ключевое слово».
-// Если слово введено, то осуществляется запрос к API.
-// Поиск ведется по российским новостям с этим ключевым словом.
-
-// Настройте запрос. Выберите конечную точку запроса everything. Затем настройте параметры:
-// запрос: то, что ввёл пользователь в поиск;
-// apiKey: ключ, который вы получите после регистрации;
-// from: 7 дней назад от текущей даты;
-// to: текущая дата;
-// pageSize: максимально допустимый массив. Выберите 100 статей — это ограничение бесплатной версии.
-// Полученные от сервера данные нужно отобразить в блоке результатов.
-
 export default class Search extends BaseComponent {
   constructor(params) {
     super();
@@ -25,20 +12,16 @@ export default class Search extends BaseComponent {
     this.articlesContainer = params.articlesContainer;
     this.searchResultsTitle = params.searchResultsTitle;
     this.errors = params.errorMessages;
-    // this.newsApi = params.newsApi;
-
   }
 
-  setSearch = (isLoggedIn) => {
+  setSearch = (isLoggedIn, pageName) => {
     this.isLoggedIn = isLoggedIn;
-    console.log('set search parameters, isloggedin? ', this.isLoggedIn, isLoggedIn);
-
+    this.pageName = pageName;
     this.form = document.forms.search;
     this.errorSpans = {
       textError: document.querySelector('#search-error'),
     };
     this.formValidator = this.dependencies.createFormValidator(this.form, this.errorSpans, this.searchButton);
-
     this.setHandlers([
       { element: this.form, event: 'input', handler: this.formValidator.inputHandler },
       { element: this.form, event: 'submit', handler: this.search },
@@ -77,7 +60,7 @@ export default class Search extends BaseComponent {
           }
           const articlesData = transformData(searchResults.articles, keyword);
 
-          this.dependencies.articleList.renderResults(articlesData, this.isLoggedIn);
+          this.dependencies.articleList.renderResults(articlesData, this.isLoggedIn, this.pageName);
 
         } else throw new Error(errorMessages.notYetRealisedSearchFunction);
 

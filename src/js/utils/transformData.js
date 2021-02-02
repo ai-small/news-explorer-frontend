@@ -8,8 +8,6 @@ function transformDate(value) {
 }
 
 export default function transformData(articles, keyword) {
-  console.log(articles, keyword);
-
   const transformedKeyword = keyword.toLowerCase().replace(/^[a-zа-яё]/, (firstSymbol) => firstSymbol.toUpperCase());
 
   const transformedArticles = articles.map((article) => {
@@ -17,14 +15,17 @@ export default function transformData(articles, keyword) {
       article.urlToImage = DEFAULT_URL_IMAGE;
     }
 
+    const articleDates = transformDate(article.publishedAt);
+
     return {
       keyword: transformedKeyword,
-      urlToImage: article.urlToImage,
-      publishedAt: transformDate(article.publishedAt),
       title: article.title,
-      description: article.description,
-      url: article.url,
+      text: article.description,
+      date: articleDates.dateForCard,
+      datetime: articleDates.dateForCard,
       source: article.source.name,
+      link: article.url,
+      image: article.urlToImage,
     };
   });
 

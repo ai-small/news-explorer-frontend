@@ -48,10 +48,4 @@ export default class Popup extends BaseComponent {
       this.close(event);
     }
   }
-
-  // removeListeners() {
-  //   this.closePopupButton.removeEventListener('click', this.close);
-  //   this.overlay.removeEventListener('click', this._clickOutToClosePopup);
-  //   document.removeEventListener('keydown', this._escapeKeyPressed);
-  // }
 }
