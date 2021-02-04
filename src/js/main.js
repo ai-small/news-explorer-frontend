@@ -1,85 +1,79 @@
 import '../pages/index.css';
+import {
+  popupSelectors,
+  headerElements,
+  searchButton,
+  preloader,
+  notFound,
+  articlesContainer,
+  searchResultsTitle,
+  showMoreButton,
+  cardsInRow,
+  errorMessages,
+} from './constants/constants';
+import MAIN_API_CONFIG from './constants/mainApiConfig';
+import NEWS_API_CONFIG from './constants/newsApiConfig';
 
-(function () {
-  const body = document.body;
-  const openMobileMenuButton = document.querySelector('.button__icon_burger');
-  const closeMobileMenuButton = document.querySelector('.button__icon_close');
-  const authButton = document.querySelector('.navigation__button');
+import MainApi from './api/MainApi';
+import NewsApi from './api/NewsApi';
+import Page from './components/Page';
+import AuthPopup from './components/AuthPopup';
+import RegPopup from './components/RegPopup';
+import SuccessPopup from './components/SuccessPopup';
+import FormValidator from './components/FormValidator';
+import Header from './components/Header';
+import Search from './components/Search';
+import NewsCard from './components/NewsCard';
+import NewsCardList from './components/NewsCardsList';
 
-  const overlay = document.querySelector('.overlay');
-  const navigation = document.querySelector('.navigation');
-  const headerPanel = document.querySelector('.header__panel');
+// СОЗДАЕМ ИНСТАНСЫ
+const createFormValidator = (...arg) => new FormValidator(...arg);
+const createArticle = (...arg) => new NewsCard(...arg);
+const mainApi = new MainApi(MAIN_API_CONFIG);
+const newsApi = new NewsApi(NEWS_API_CONFIG);
+const page = new Page({ mainApi, headerElements });
+const header = new Header(headerElements);
+const regPopup = new RegPopup(popupSelectors, mainApi);
+const authPopup = new AuthPopup(popupSelectors, mainApi);
+const successPopup = new SuccessPopup(popupSelectors, mainApi);
+const searchNews = new Search({
+  searchButton,
+  preloader,
+  notFound,
+  articlesContainer,
+  searchResultsTitle,
+  errorMessages,
+});
+const articleList = new NewsCardList({
+  articlesContainer,
+  searchResultsTitle,
+  showMoreButton,
+  cardsInRow,
+});
 
-  const popupSignIn = document.getElementById('popup-signin');
-  const popupSignUp = document.getElementById('popup-signup');
-  const popupCloseButtons = document.getElementsByClassName('popup__mobile-button');
-  const signUpButton = document.getElementById('open-signup');
-  const signInButton = document.getElementById('open-signin');
+// Dependencies
+authPopup.saveDependencies({
+  regPopup,
+  createFormValidator,
+  header,
+  page,
+});
+regPopup.saveDependencies({ authPopup, createFormValidator, successPopup });
+successPopup.saveDependencies({ authPopup });
+page.saveDependencies({
+  header,
+  authPopup,
+  searchNews,
+  articleList,
+});
+header.saveDependencies({ authPopup, mainApi, page });
+searchNews.saveDependencies({
+  createFormValidator,
+  createArticle,
+  articleList,
+  newsApi,
+});
+articleList.saveDependencies({ createArticle, searchNews, mainApi });
 
-  // закрыть мобильное меню
-  function closeMobileMenu() {
-    if (!navigation.classList.contains('hidden')) {
-      navigation.classList.add('hidden');
-      navigation.classList.remove('navigation_flex');
-      headerPanel.classList.remove('header__panel_theme_dark');
-      overlay.classList.add('hidden');
-      openMobileMenuButton.classList.remove('hidden');
-      closeMobileMenuButton.classList.add('hidden');
-    }
-  }
-
-  // открыть мобильное меню: добавляем темную тему в панель хедера,
-  // затемняем страницу, скрываем иконку бургера, показываем кнопку Х
-  function openMobileMenu() {
-    if (navigation.classList.contains('hidden')) {
-      navigation.classList.remove('hidden');
-      navigation.classList.add('navigation_flex');
-      headerPanel.classList.add('header__panel_theme_dark');
-      overlay.classList.remove('hidden');
-      openMobileMenuButton.classList.add('hidden');
-      closeMobileMenuButton.classList.remove('hidden');
-    }
-  }
-
-  function addListenerToCloseButton(closePopupButton) {
-    closePopupButton.addEventListener('click', function() {
-      closePopupButton.closest('.popup').classList.add('hidden');
-      openMobileMenuButton.classList.remove('hidden');
-      body.classList.remove('overflow-hidden');
-      overlay.classList.add('hidden');
-    });
-  }
-
-  function openAuthPopup() {
-    const closePopupButton = popupCloseButtons.namedItem('signin-close');
-    closeMobileMenu();
-    openMobileMenuButton.classList.add('hidden');
-    popupSignIn.classList.remove('hidden');
-    overlay.classList.remove('hidden');
-
-    addListenerToCloseButton(closePopupButton);
-  }
-
-  //listeners
-
-  // eslint-disable-next-line prefer-arrow-callback
-  openMobileMenuButton.addEventListener('click', openMobileMenu);
-  closeMobileMenuButton.addEventListener('click', closeMobileMenu);
-  authButton.addEventListener('click', openAuthPopup);
-
-  signUpButton.addEventListener('click', function() {
-    popupSignIn.classList.add('hidden');
-    popupSignUp.classList.remove('hidden');
-    const closePopupButton = popupCloseButtons.namedItem('signup-close');
-    closePopupButton.classList.remove('hidden');
-    addListenerToCloseButton(closePopupButton);
-  });
-
-  signInButton.addEventListener('click', function() {
-    popupSignIn.classList.remove('hidden');
-    popupSignUp.classList.add('hidden');
-    const closePopupButton = popupCloseButtons.namedItem('signin-close');
-    closePopupButton.classList.remove('hidden');
-    addListenerToCloseButton(closePopupButton);
-  });
-})();
+// ОТРИСОВАТЬ ГЛАВНУЮ СТРАНИЦУ
+page.renderMain();

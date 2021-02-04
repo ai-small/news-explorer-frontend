@@ -3,6 +3,7 @@
 @import url(./_type/button_type_button.css);
 @import url(./_color/button_color_blue.css);
 @import url(./_disabled/button_disabled.css);
+@import url(./_left-align/button_left-align.css);
 
 
 .button {

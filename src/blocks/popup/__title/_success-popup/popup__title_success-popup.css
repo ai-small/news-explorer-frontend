@@ -1,0 +1,10 @@
+.popup__title_success-popup {
+
+}
+
+@media screen and (min-width: 500px)
+{
+  .popup__title_success-popup {
+    margin: 34px 0 16px 0;
+  }
+}

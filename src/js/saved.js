@@ -1,57 +1,48 @@
 import '../pages/saved.css';
+import {
+  headerElements,
+  searchResults,
+  savedArticlesTitle,
+  keywordsCount,
+  articlesContainer,
+  showMoreButton,
+  cardsInRow,
+  keywords,
+  keyword,
+  preloader,
+} from './constants/constants';
+import MAIN_API_CONFIG from './constants/mainApiConfig';
 
-(function () {
-  const body = document.body;
-  const openMobileMenuButton = document.querySelector('.button__icon_burger');
-  const closeMobileMenuButton = document.querySelector('.button__icon_close');
+import MainApi from './api/MainApi';
+import Page from './components/Page';
+import SavedArticlesBlock from './components/SavedArticlesBlock';
+import Header from './components/Header';
+import NewsCard from './components/NewsCard';
+import NewsCardList from './components/NewsCardsList';
 
-  const overlay = document.querySelector('.overlay');
-  const navigation = document.querySelector('.navigation');
-  const headerPanel = document.querySelector('.header__panel');
-  const logo = document.querySelector('.logo');
+// Инстансы
+const mainApi = new MainApi(MAIN_API_CONFIG);
+const pageSavedArt = new Page({ mainApi, headerElements, preloader });
+const headerWhite = new Header(headerElements);
+const savedArticlesBlock = new SavedArticlesBlock({
+  savedArticlesTitle,
+  searchResults,
+  keywordsCount,
+  keywords,
+  keyword,
+});
+const createArticle = (...arg) => new NewsCard(...arg);
+const articleList = new NewsCardList({
+  articlesContainer,
+  showMoreButton,
+  cardsInRow,
+});
 
+// dependencies
+pageSavedArt.saveDependencies({ headerWhite, savedArticlesBlock });
+headerWhite.saveDependencies({ mainApi });
+savedArticlesBlock.saveDependencies({ mainApi, articleList, createArticle });
+articleList.saveDependencies({ createArticle, mainApi });
 
-  // закрыть мобильное меню
-  function closeMobileMenu() {
-    if (!navigation.classList.contains('hidden')) {
-      navigation.classList.add('hidden');
-      navigation.classList.remove('navigation_flex');
-      headerPanel.classList.remove('header__panel_theme_dark');
-      headerPanel.classList.add('header__panel_theme_white');
-      logo.classList.add('logo_theme_white');
-      overlay.classList.add('hidden');
-      openMobileMenuButton.classList.remove('hidden');
-      closeMobileMenuButton.classList.add('hidden');
-    }
-  }
-
-  // открыть мобильное меню: добавляем темную тему в панель хедера,
-  // затемняем страницу, скрываем иконку бургера, показываем кнопку Х
-  function openMobileMenu() {
-    if (navigation.classList.contains('hidden')) {
-      navigation.classList.remove('hidden');
-      navigation.classList.add('navigation_flex');
-      headerPanel.classList.add('header__panel_theme_dark');
-      headerPanel.classList.remove('header__panel_theme_white');
-      logo.classList.remove('logo_theme_white');
-      overlay.classList.remove('hidden');
-      openMobileMenuButton.classList.add('hidden');
-      closeMobileMenuButton.classList.remove('hidden');
-    }
-  }
-
-  function addListenerToCloseButton(closePopupButton) {
-    closePopupButton.addEventListener('click', function() {
-      closePopupButton.closest('.popup').classList.add('hidden');
-      openMobileMenuButton.classList.remove('hidden');
-      body.classList.remove('overflow-hidden');
-      overlay.classList.add('hidden');
-    });
-  }
-
-  //listeners
-
-  // eslint-disable-next-line prefer-arrow-callback
-  openMobileMenuButton.addEventListener('click', openMobileMenu);
-  closeMobileMenuButton.addEventListener('click', closeMobileMenu);
-})();
+// ОТРИСОВАТЬ СТРАНИЦУ
+pageSavedArt.renderSavedArticles();

@@ -6,14 +6,17 @@
 ## О проекте:
 На текущем этапе выполнены: 
 - настройка инфраструктуры: сборка проекта с помощью webpack;
-- Вёрстка дипломного проекта **NewsExplorer**.
+- вёрстка дипломного проекта **NewsExplorer**;
+- релизация функционала на нативном JavaScript.
 
 
-**NewsExplorer** - сервис, в котором можно найти новости по запросу и сохранить в личном кабинете. 
+**NewsExplorer** - сервис, в котором можно найти новости по запросу и сохранить в личном кабинете. В проекте два разных бэкенда: 
+* API для аутентификации пользователей и сохранения статей;
+* внешний API (NewsAPI).
 
 
 ## Используемые технологии
-HTML, CSS 
+HTML, CSS, Webpack5, JavaScript  
 
 
 ## Запуск
@@ -24,6 +27,7 @@ HTML, CSS
 :pushpin: `npm run deploy` - развертывание проета на GitHub Pages.
 
 
-## Ссылка на проект
-:point_up_2: [News Explorer](https://ai-small.github.io/news-explorer-frontend/)
-
+## Ссылки на проект
+:point_up_2: [News Explorer - Github Pages](https://ai-small.github.io/news-explorer-frontend/)
+:point_up_2: [News Explorer - nws-explorer.tk](https://nws-explorer.tk)
+:point_up_2: [News Explorer - Backend](https://github.com/ai-small/news-explorer-api)
